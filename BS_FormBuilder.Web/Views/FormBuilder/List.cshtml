@@ -12,6 +12,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayName("Form Id")
+        </th>
+        <th>
             @Html.DisplayName("Form Name")
         </th>
         <th>
@@ -25,6 +28,9 @@
 
     @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormId)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FormName)
             </td>
