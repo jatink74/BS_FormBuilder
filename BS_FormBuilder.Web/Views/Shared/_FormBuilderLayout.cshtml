@@ -1,0 +1,96 @@
+﻿@model BS_FormBuilder.Web.Models.Entities.Form
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Form Builder - ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/assets/css")
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+<body style="padding-top:0">
+    <div class="ajax-loader">
+    </div>
+
+    <form id="__AjaxAntiForgeryForm" action="#" method="post">@Html.AntiForgeryToken()</form>
+    @RenderBody()
+    <div class="container">
+        <div class="row clearfix">
+            <!-- Building Form. -->
+            <div class="span6">
+                <div class="clearfix">
+                    <h2>@ViewBag.Title<span style="font-size:16px;font-weight:normal;"> [ @Html.ActionLink("Back to List", "List") ]</span></h2>
+                    <hr>
+                    
+                    <div id="build">
+                        <form id="target" class="form-horizontal"></form>
+                    </div>
+                </div>
+            </div>
+            <!-- / Building Form. -->
+            <!-- Components -->
+            <div class="span6">
+                <h2>Drag & Drop components</h2>
+                <hr>
+                <div class="tabbable">
+                    <ul class="nav nav-tabs" id="formtabs">
+                        <!-- Tab nav -->
+                    </ul>
+                    <form class="form-horizontal" id="components">
+                        <fieldset>
+                            <div class="tab-content">
+                                <!-- Tabs of snippets go here -->
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <!-- / Components -->
+
+        </div>
+    </div> <!-- /container -->
+
+    <script type="text/javascript">
+        var editMode = '@ViewBag.EditMode';
+        var createUrl = "/FormBuilder/Create";
+        var editUrl = "/FormBuilder/Edit/";
+        var formId = '@Model.FormId';
+        var formJson = '@Model.FormJson';
+        var formBuilderJson = '@Model.FormBuilderJson';
+        var url;
+        if (editMode == 'create') {
+            url = '@Url.Action("Create", "FormBuilder")';
+        } 
+        else {
+            url = '@Url.Action("Edit", "FormBuilder")';
+        }
+
+        AddAntiForgeryToken = function (data) {
+            data.__RequestVerificationToken = $('#__AjaxAntiForgeryForm input[name=__RequestVerificationToken]').val();
+            return data;
+        };
+
+    </script>
+
+    <script data-main="/assets/js/main-built.js" src="/assets/js/lib/require.js"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-13083321-13', 'minikomi.github.io');
+        ga('send', 'pageview');
+
+    </script>
+</body>
+</html>
