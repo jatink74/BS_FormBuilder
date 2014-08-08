@@ -31,27 +31,27 @@ define([
         , "checkbox" : _.template(_PopoverCheckbox)
       }
     }
-    , render: function(withAttributes){
-      var that = this;
-      var content = _.template(_PopoverMain)({
-        "title": that.model.get("title"),
-        "items" : that.model.get("fields"),
-        "popoverTemplates": that.popoverTemplates
-      });
-      if (withAttributes) {
-        return this.$el.html(
-          that.template(that.model.getValues())
-        ).attr({
-          "data-content"     : content
-          , "data-title"     : that.model.get("title")
-          , "data-trigger"   : "manual"
-          , "data-html"      : true
+    , render: function (withAttributes) {
+        var that = this;
+        var content = _.template(_PopoverMain)({
+            "title": that.model.get("title"),
+            "items": that.model.get("fields"),
+            "popoverTemplates": that.popoverTemplates
         });
-      } else {
-        return this.$el.html(
-          that.template(that.model.getValues())
-        )
-      }
+        if (withAttributes) {
+            return this.$el.html(
+              that.template(that.model.getValues())
+            ).attr({
+                "data-content": content
+              , "data-title": that.model.get("title")
+              , "data-trigger": "manual"
+              , "data-html": true
+            });
+        } else {
+            return this.$el.html(
+              that.template(that.model.getValues())
+            )
+        }
     }
   });
 });

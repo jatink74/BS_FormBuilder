@@ -14,7 +14,7 @@ body {
   min-height: 500px;
 }
 
-#target fieldset {
+#target fieldset, #preview-container fieldset {
   border: 1px solid #ccc;
   min-height: 200px;
   padding: 5px;
@@ -33,10 +33,10 @@ textarea {
   resize: vertical;
 }
 
-.popover .control-group {
+.popover .control-group, #render .control-group {
   cursor: default;
 }
-.popover input {
+.popover input, #render input {
   cursor: text;
 }
 
@@ -63,7 +63,7 @@ textarea {
 
 #render{
   min-height: 500px;
-  font-family: monospace;
+  /*font-family: monospace;*/
 }
 
 /* Popovers now are appended to their parent rather

@@ -62,7 +62,6 @@ define([
                   }
                 }]);
           } else {
-              console.log(formBuilderJson.replace(/&quot;/g, '"'));
               snippetsCollection = new MyFormSnippetsCollection(JSON.parse(formBuilderJson.replace(/&quot;/g, '"')));
           }
           new MyFormView({

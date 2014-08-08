@@ -2,13 +2,11 @@ define([
        "jquery", "underscore", "backbone"
       , "views/temp-snippet"
       , "helper/pubsub"
-      , "text!templates/app/renderform.html"
 ], function(
   $, _, Backbone
   , TempSnippetView
   , PubSub
-  , _renderForm
-){
+) {
   return Backbone.View.extend({
     tagName: "fieldset"
     , initialize: function(){
@@ -19,7 +17,7 @@ define([
       PubSub.on("tempMove", this.handleTempMove, this);
       PubSub.on("tempDrop", this.handleTempDrop, this);
       this.$build = $("#build");
-      this.renderForm = _.template(_renderForm);
+      
       this.render();
     }
 
@@ -36,9 +34,30 @@ define([
       _.each(this.collection.renderAll(), function(snippet){
         that.$el.append(snippet);
       });
-      $("#render").val(that.renderForm({
-        text: _.map(this.collection.renderAllClean(), function(e){return e.html()}).join("\n")
-      }));
+
+      
+      $("#render").empty();
+      _.each(this.collection.renderMyFormPreview(), function (snippet) {
+          $("#render").append(snippet);
+      });
+
+      //var previewHtml = _.map(that.collection.renderMyFormPreview(), function (snippet) {
+      //    $("#render").html(previewHtml)
+      //});
+      //$("#render").html(previewHtml)
+      //$("#render").html(
+          
+      //    _.each(that.collection.renderAll(), function (snippet) {
+      //        return snippet;
+      //    }));
+
+
+        /*@Note Jatin: We need to render the form rather than showing the html */
+
+      //$("#render").val(that.renderForm({
+      //    text: _.map(this.collection.renderAllClean(), function (e) { return e.html() }).join("\n")
+        //}));
+
       this.$el.appendTo("#build form");
       this.delegateEvents();
     }
@@ -92,7 +111,7 @@ define([
     }
       /* @NOTE Jatin: Ask the collection to save themselves. */
     , saveForm: function () {
-        this.collection.saveAll('create');
+        this.collection.saveAll();
     }
   })
 });
