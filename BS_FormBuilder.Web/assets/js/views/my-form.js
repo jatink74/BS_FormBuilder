@@ -35,28 +35,11 @@ define([
         that.$el.append(snippet);
       });
 
-      
+      /* @NOTE Jatin: The Rendered Tab now displays form instead of form code */
       $("#render").empty();
       _.each(this.collection.renderMyFormPreview(), function (snippet) {
           $("#render").append(snippet);
       });
-
-      //var previewHtml = _.map(that.collection.renderMyFormPreview(), function (snippet) {
-      //    $("#render").html(previewHtml)
-      //});
-      //$("#render").html(previewHtml)
-      //$("#render").html(
-          
-      //    _.each(that.collection.renderAll(), function (snippet) {
-      //        return snippet;
-      //    }));
-
-
-        /*@Note Jatin: We need to render the form rather than showing the html */
-
-      //$("#render").val(that.renderForm({
-      //    text: _.map(this.collection.renderAllClean(), function (e) { return e.html() }).join("\n")
-        //}));
 
       this.$el.appendTo("#build form");
       this.delegateEvents();
