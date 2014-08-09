@@ -8,6 +8,9 @@ require.config({
     'underscore': {
       exports: '_'
     },
+    'bootstrap-multiselect': {
+        deps: ['bootstrap']
+    },
     'bootstrap': {
       deps: ['jquery'],
       exports: '$.fn.popover'
@@ -24,5 +27,5 @@ require.config({
   }
 });
 require([ 'app/app'], function(app){
-  app.initialize();
+    app.initialize();
 });

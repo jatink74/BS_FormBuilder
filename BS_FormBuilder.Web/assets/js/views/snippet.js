@@ -8,6 +8,7 @@ define([
   , "text!templates/popover/popover-checkbox.html"
   , "templates/snippet/snippet-templates"
   , "bootstrap"
+  , "bootstrap-multiselect"
 ], function(
   $, _, Backbone
   , _PopoverMain

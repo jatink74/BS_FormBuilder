@@ -3,7 +3,8 @@ define([
        , "collections/snippets" , "collections/my-form-snippets"
        , "views/tab" , "views/my-form"
        , "text!data/input.json", "text!data/radio.json", "text!data/select.json", "text!data/buttons.json"
-       , "text!templates/app/render.html",  "text!templates/app/about.html", 
+       , "text!templates/app/render.html", "text!templates/app/about.html"
+       , "bootstrap-multiselect"
 ], function(
   $, _, Backbone
   , SnippetsCollection, MyFormSnippetsCollection
@@ -77,6 +78,10 @@ define([
           $(document).ajaxComplete(function () {
               $(".ajax-loader").hide();
           });
-    }
+
+          $(document).ready(function () {
+              $('.bs-multiselect').multiselect();
+          });
+      }
   }
 });

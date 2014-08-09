@@ -24,7 +24,8 @@ namespace BS_FormBuilder.Web {
             bundles.Add(new StyleBundle("~/assets/css").Include(
                       "~/assets/css/lib/bootstrap.min.css",
                       "~/assets/css/lib/bootstrap-responsive.min.css",
-                      "~/assets/css/custom.css"));
+                      "~/assets/css/custom.css",
+                      "~/assets/css/lib/bootstrap-multiselect.css"));
         }
     }
 }

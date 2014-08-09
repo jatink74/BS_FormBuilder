@@ -9,6 +9,9 @@
     'underscore': {
       exports: '_'
     },
+    'bootstrap-multiselect': {
+        deps: ['bootstrap', 'jquery']
+    },
     'bootstrap': {
       deps: ['jquery'],
       exports: '$.fn.popover'

@@ -3,6 +3,7 @@ define([
        , "models/snippet"
        , "views/snippet", "views/temp-snippet"
        , "helper/pubsub"
+
 ], function(
   $, _, Backbone
   , SnippetModel

@@ -19,6 +19,7 @@ define(function(require) {
   , searchinput              = require('text!templates/snippet/searchinput.html')
   , selectbasic              = require('text!templates/snippet/selectbasic.html')
   , selectmultiple           = require('text!templates/snippet/selectmultiple.html')
+  , selectmultiplebootstrap  = require('text!templates/snippet/selectmultiplebootstrap.html')
   , textarea                 = require('text!templates/snippet/textarea.html')
   , textinput                = require('text!templates/snippet/textinput.html');
 
@@ -43,6 +44,7 @@ define(function(require) {
     , searchinput              : searchinput
     , selectbasic              : selectbasic
     , selectmultiple           : selectmultiple
+    , selectmultiplebootstrap  : selectmultiplebootstrap
     , textarea                 : textarea
     , textinput                : textinput
   }

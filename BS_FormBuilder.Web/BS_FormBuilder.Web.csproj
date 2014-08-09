@@ -131,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\css\custom.css" />
+    <Content Include="assets\css\lib\bootstrap-multiselect.css" />
     <Content Include="assets\css\lib\bootstrap-responsive.min.css" />
     <Content Include="assets\css\lib\bootstrap.min.css" />
     <Content Include="assets\img\glyphicons-halflings-white.png" />
@@ -140,6 +141,7 @@
     <Content Include="assets\js\collections\snippets.js" />
     <Content Include="assets\js\helper\pubsub.js" />
     <Content Include="assets\js\lib\backbone.js" />
+    <Content Include="assets\js\lib\bootstrap-multiselect.js" />
     <Content Include="assets\js\lib\bootstrap.js" />
     <Content Include="assets\js\lib\build.js" />
     <Content Include="assets\js\lib\jquery.js" />
@@ -174,6 +176,7 @@
     <Content Include="assets\js\templates\snippet\prependedtext.html" />
     <Content Include="assets\js\templates\snippet\searchinput.html" />
     <Content Include="assets\js\templates\snippet\selectbasic.html" />
+    <Content Include="assets\js\templates\snippet\selectmultiplebootstrap.html" />
     <Content Include="assets\js\templates\snippet\selectmultiple.html" />
     <Content Include="assets\js\templates\snippet\snippet-templates.js" />
     <Content Include="assets\js\templates\snippet\textarea.html" />

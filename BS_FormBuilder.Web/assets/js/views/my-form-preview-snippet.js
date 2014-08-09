@@ -1,10 +1,9 @@
 ﻿define([
        "jquery", "underscore", "backbone"
-       , "models/snippet"
-       , "views/snippet", 
+       , "views/snippet",
+
 ], function (
   $, _, Backbone
-  , SnippetModel
   , SnippetView
 ) {
     return SnippetView.extend({
