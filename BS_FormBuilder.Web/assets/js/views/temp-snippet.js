@@ -3,7 +3,7 @@ define([
        , "views/snippet"
        , "text!templates/app/temp.html"
        , "helper/pubsub"
-], function(
+], function (
   $
   , SnippetView
   , _tempTemplate
@@ -17,9 +17,9 @@ define([
     }
     , className: "temp"
     , render: function() {
-      return this.$el.html(this.tempTemplate({text: this.constructor.__super__.render.call(this).html()}));
+        return this.$el.html(this.tempTemplate({ text: this.constructor.__super__.render.call(this).html() }));
     }
-    , postRender: function(mouseEvent){
+    , postRender: function (mouseEvent) {
       this.tempForm  = this.$el.find("form")[0];
       this.halfHeight = Math.floor(this.tempForm.clientHeight/2);
       this.halfWidth  = Math.floor(this.tempForm.clientWidth/2);

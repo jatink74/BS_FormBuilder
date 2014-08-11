@@ -139,6 +139,7 @@
     <Content Include="assets\js\app.js" />
     <Content Include="assets\js\collections\my-form-snippets.js" />
     <Content Include="assets\js\collections\snippets.js" />
+    <Content Include="assets\js\helper\bs-multiselect.js" />
     <Content Include="assets\js\helper\pubsub.js" />
     <Content Include="assets\js\lib\backbone.js" />
     <Content Include="assets\js\lib\bootstrap-multiselect.js" />

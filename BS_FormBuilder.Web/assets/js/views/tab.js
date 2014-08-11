@@ -3,7 +3,8 @@ define([
        , "text!templates/app/tab-nav.html"
 
 ], function($, _, Backbone,
-           _tabNavTemplate){
+           _tabNavTemplate,
+           BootstrapMultiselect){
   return Backbone.View.extend({
     tagName: "div"
     , className: "tab-pane"

@@ -79,9 +79,6 @@ define([
               $(".ajax-loader").hide();
           });
 
-          $(document).ready(function () {
-              $('.bs-multiselect').multiselect();
-          });
       }
   }
 });

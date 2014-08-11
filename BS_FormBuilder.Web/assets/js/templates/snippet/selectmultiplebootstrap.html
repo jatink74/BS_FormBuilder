@@ -1,12 +1,11 @@
-<!-- Select Multiple -->
+<!-- Select Multiple Bootstrap-->
 <div class="control-group">
   <label class="control-label" for="<%= id %>"><%= label %></label>
   <div class="controls">
-      <select id="<%= id %>" name="<%= id %>" class="bs-multiselect <%= inputsize %>" multiple="multiple">
+      <select id="<%= id %>" name="<%= id %>" class="<%= inputsize %> bs-multiselect" multiple="multiple">
           <% _.each(options, function(option) { %>
           <option><%= option %></option>
           <% }); %>
       </select>
-      <% $('.bs-multiselect').multiselect(); %>
   </div>
 </div>

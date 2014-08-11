@@ -2,7 +2,7 @@ define([
        "jquery", "underscore", "backbone"
       , "views/temp-snippet"
       , "helper/pubsub"
-], function(
+], function (
   $, _, Backbone
   , TempSnippetView
   , PubSub
@@ -34,6 +34,7 @@ define([
       _.each(this.collection.renderAll(), function(snippet){
         that.$el.append(snippet);
       });
+      this.$el.appendTo("#build form");
 
       /* @NOTE Jatin: The Rendered Tab now displays form instead of form code */
       $("#render").empty();
@@ -41,7 +42,6 @@ define([
           $("#render").append(snippet);
       });
 
-      this.$el.appendTo("#build form");
       this.delegateEvents();
     }
 
