@@ -1,0 +1,53 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_FormRuntimeLayout</title>
+    @Styles.Render("~/assets/runtime-css")
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+    @RenderBody()
+    <div class="container">
+        <div class="row">
+            <div id="build" class="span12">
+                @using (Html.BeginForm("Edit", "FormRuntime", FormMethod.Post, new {id="target", @class="form-horizontal" })) {
+                    
+                }
+                @*<form id="target" method="post" class="form-horizontal"></form>*@
+                @RenderSection("footer")
+            </div>
+        </div>
+    </div>
+    <script>
+        var editMode = '@ViewBag.EditMode';
+        var formId = '@Model.FormId';
+        var formJson = '@Model.FormJson';
+        var formBuilderJson = '@Model.FormBuilderJson';
+        var url;
+        if (editMode == 'create') {
+            url = '@Url.Action("Create", "FormBuilder")';
+        }
+        else {
+            url = '@Url.Action("Edit", "FormBuilder")';
+        }
+    </script>
+    <script data-main="/assets/js/main.js" src="/assets/js/lib/require.js"></script>
+    <script type="text/javascript">
+        require(['runtime-app'], function (app) {
+            //app.initialize();
+        });
+    </script>
+
+</body>
+</html>

@@ -121,6 +121,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\FormBuilderController.cs" />
+    <Compile Include="Controllers\FormRuntimeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -130,13 +131,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\custom-runtime.css" />
     <Content Include="assets\css\custom.css" />
     <Content Include="assets\css\lib\bootstrap-multiselect.css" />
     <Content Include="assets\css\lib\bootstrap-responsive.min.css" />
     <Content Include="assets\css\lib\bootstrap.min.css" />
     <Content Include="assets\img\glyphicons-halflings-white.png" />
     <Content Include="assets\img\glyphicons-halflings.png" />
-    <Content Include="assets\js\app.js" />
+    <Content Include="assets\js\builder-app.js" />
+    <Content Include="assets\js\collections\form-runtime-snippets.js" />
     <Content Include="assets\js\collections\my-form-snippets.js" />
     <Content Include="assets\js\collections\snippets.js" />
     <Content Include="assets\js\helper\bs-multiselect.js" />
@@ -151,6 +154,7 @@
     <Content Include="assets\js\lib\underscore.js" />
     <Content Include="assets\js\main.js" />
     <Content Include="assets\js\models\snippet.js" />
+    <Content Include="assets\js\runtime-app.js" />
     <Content Include="assets\js\templates\app\about.html" />
     <Content Include="assets\js\templates\app\render.html" />
     <Content Include="assets\js\templates\app\tab-nav.html" />
@@ -182,7 +186,9 @@
     <Content Include="assets\js\templates\snippet\snippet-templates.js" />
     <Content Include="assets\js\templates\snippet\textarea.html" />
     <Content Include="assets\js\templates\snippet\textinput.html" />
+    <Content Include="assets\js\views\form-runtime-snippet.js" />
     <Content Include="assets\js\views\my-form-preview-snippet.js" />
+    <Content Include="assets\js\views\form-runtime.js" />
     <Content Include="assets\js\views\my-form-snippet.js" />
     <Content Include="assets\js\views\my-form.js" />
     <Content Include="assets\js\views\snippet.js" />
@@ -233,6 +239,8 @@
     <Content Include="Views\FormBuilder\Create.cshtml" />
     <Content Include="Views\FormBuilder\Edit.cshtml" />
     <Content Include="Views\FormBuilder\List.cshtml" />
+    <Content Include="Views\Shared\_FormRuntimeLayout.cshtml" />
+    <Content Include="Views\FormRuntime\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

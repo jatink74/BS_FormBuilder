@@ -1,0 +1,36 @@
+body {
+  padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+  padding-bottom: 10px;
+  position: relative;
+}
+
+@media (max-width: 979px) {
+  body {
+    padding-top: 0px;
+  }
+}
+
+#components {
+  min-height: 500px;
+}
+
+#target fieldset, #preview-container fieldset {
+  border: 1px solid #ccc;
+  min-height: 200px;
+  padding: 5px;
+  padding-bottom: 30px;
+}
+
+/*.component {
+  cursor: pointer;
+}*/
+
+input {
+  cursor: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+

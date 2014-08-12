@@ -44,7 +44,8 @@
                 @Html.ActionLink("Edit", "Edit", new { id = item.FormId }) |
                 @Html.ActionLink("Delete", "Delete",
                                 new { id = item.FormId },
-                                new { onclick = "return confirm('Are you sure you wish to delete this Form?');" })
+                                new { onclick = "return confirm('Are you sure you wish to delete this Form?');" }) |
+                @Html.ActionLink("Run", "Edit", "FormRuntime", new { id = item.FormId }, null)
             </td>
         </tr>
     }
