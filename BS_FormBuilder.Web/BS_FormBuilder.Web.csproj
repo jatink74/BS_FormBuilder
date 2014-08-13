@@ -241,6 +241,9 @@
     <Content Include="Views\FormBuilder\List.cshtml" />
     <Content Include="Views\Shared\_FormRuntimeLayout.cshtml" />
     <Content Include="Views\FormRuntime\Edit.cshtml" />
+    <Content Include="Views\FormRuntime\EditModal.cshtml" />
+    <Content Include="Views\FormRuntime\EditModalBottomPop.cshtml" />
+    <Content Include="Views\FormRuntime\EditModalSidePop.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -20,15 +20,12 @@
     @RenderBody()
     <div class="container">
         <div class="row">
-            <div id="build" class="span12">
-                @using (Html.BeginForm("Edit", "FormRuntime", FormMethod.Post, new {id="target", @class="form-horizontal" })) {
-                    
-                }
-                @*<form id="target" method="post" class="form-horizontal"></form>*@
-                @RenderSection("footer")
+            <div class="span12">
+                Hello There
             </div>
         </div>
     </div>
+
     <script>
         var editMode = '@ViewBag.EditMode';
         var formId = '@Model.FormId';
@@ -45,9 +42,11 @@
     <script data-main="/assets/js/main.js" src="/assets/js/lib/require.js"></script>
     <script type="text/javascript">
         require(['runtime-app'], function (app) {
-            //app.initialize();
+            app.initialize();
+            @RenderSection("scripts", false)
         });
     </script>
+
 
 </body>
 </html>

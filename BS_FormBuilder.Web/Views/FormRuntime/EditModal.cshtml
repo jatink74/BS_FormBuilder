@@ -1,0 +1,30 @@
+﻿@model BS_FormBuilder.Web.Models.Entities.Form
+
+@{
+    ViewBag.Title = "EditModal";
+    Layout = "~/Views/Shared/_FormRuntimeLayout.cshtml";
+}
+
+    <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">@Model.FormName</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="build">
+                        @using (Html.BeginForm("Edit", "FormRuntime", FormMethod.Post, new { id = "target", @class = "form-horizontal" })) {
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<a class="btn btn-primary fixed-popup-button zero-radius" data-toggle="modal" data-target="#formModal">
+    @Model.FormName &nbsp;&nbsp;<i class="icon-chevron-up icon-white"></i>
+</a>
+

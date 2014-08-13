@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "EditModalBottomPop";
+    Layout = "~/Views/Shared/_FormRuntimeLayout.cshtml";
+}
+
+<div class="side-pop-wrapper" id="divForm" style="margin-left:0;">
+    <div>
+        <a class="btn btn-primary zero-radius" style="float:right;" id="lnkToggleForm">
+            @Model.FormName &nbsp;&nbsp;<i class="icon-chevron-up icon-white"></i>
+        </a>
+    </div>
+    <div id="build" style="display:none;">
+        @using (Html.BeginForm("Edit", "FormRuntime", FormMethod.Post, new { id = "target", @class = "form-horizontal" })) {
+        }
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+@section scripts {
+    require(['jquery'], function ($) {
+        $(document).ready(function () {
+            $("#lnkToggleForm").click(function toggleForm() {
+                $("#build").slideToggle(300);
+                if ($("#lnkToggleForm i").hasClass("icon-chevron-up")) {
+                    $("#lnkToggleForm i").removeClass("icon-chevron-up");
+                    $("#lnkToggleForm i").addClass("icon-chevron-down");
+                }
+                else {
+                    $("#lnkToggleForm i").removeClass("icon-chevron-down");
+                    $("#lnkToggleForm i").addClass("icon-chevron-up");
+                }
+            });
+        });
+    });
+}
+</script>

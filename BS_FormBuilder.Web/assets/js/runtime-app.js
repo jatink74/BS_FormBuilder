@@ -21,6 +21,6 @@
               , collection: snippetsCollection
             });
 
-        }()
+        }
     }
 });

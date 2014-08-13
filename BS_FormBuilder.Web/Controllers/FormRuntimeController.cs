@@ -22,7 +22,7 @@ namespace BS_FormBuilder.Web.Controllers
             if (form == null) {
                 return HttpNotFound();
             }
-            return View(form);
+            return View("EditModalSidePop",form);
         }
 
         // POST: /FormBuilder/Edit/5  ...ToDo awaiting Arnabs call

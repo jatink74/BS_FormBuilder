@@ -7,6 +7,12 @@ using System.Web;
 
 namespace BS_FormBuilder.Web.Models.Entities {
 
+    public enum FormDisplayType {
+        Slide_From_Top,
+        Slide_From_Right_Corner,
+        Slide_From_Side
+    }
+
     public class Form {
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
