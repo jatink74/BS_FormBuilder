@@ -70,14 +70,14 @@ input[type="checkbox"].input-validation-error {
     right:0;
 }
 
+/*form popup*/
+
 #formModal{
-    background-color:aliceblue;
-    min-width:700px;
+    background-color:$modal-Form-bg-color;
+    min-width:500px;
 }
 
-/*Css for bottom form popup*/
 .pop-wrapper {
-    position:fixed;
     max-width: 700px;
     min-width:500px;
     overflow:hidden;
@@ -88,25 +88,43 @@ input[type="checkbox"].input-validation-error {
     }
 }
 
+
+/*bottom form popup*/
+
 .bottom-pop {
-    background-color:aliceblue;
+    background-color:$modal-Form-bg-color;
+    position:fixed;
     right: 0;
     bottom: 0;
 
+    .bottom-header {
+        position:absolute;
+        right:0;top:0;
+        min-width: 500px;
+        margin-top: -30px;
+        text-align:right;
+                
+        a {
+            min-width:150px;
+        }
+    }
+
     #build {
         padding:15px;
-        /*background-color:aliceblue;*/
         border: 1px solid #4885B7; 
         clear:both; 
         max-height:500px;
         min-width:500px;
         overflow-y: auto;
+        display:none;
     }
 
 }
 
+/*Side form popup*/
+
 .side-pop {
-    background-color:aliceblue;
+    background-color:$modal-Form-bg-color;
     position:fixed;
     left: 0;
     top: 50px;
@@ -115,15 +133,17 @@ input[type="checkbox"].input-validation-error {
     .side-header{
         position:absolute;
         right:0;top:0;
-        width:25px;
-        margin-right:-25px;
+        width: 30px;
+        margin-right:-30px;
+        min-height:300px;
     }
 
     .rotate270 {
         @include transform(rotate(270deg));
+
     }
     a.rotate270 {
-        width:150px;
+        min-width:150px;
         height:25px;
         margin-left:-70px;
         margin-top:70px;

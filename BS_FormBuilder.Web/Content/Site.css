@@ -90,16 +90,15 @@ input[type="checkbox"].input-validation-error {
   right: 0;
 }
 
-/* line 73, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+/*form popup*/
+/* line 75, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 #formModal {
-  background-color: aliceblue;
-  min-width: 700px;
+  background-color: #ebf6ff;
+  min-width: 500px;
 }
 
-/*Css for bottom form popup*/
-/* line 79, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+/* line 80, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 .pop-wrapper {
-  position: fixed;
   max-width: 700px;
   min-width: 500px;
   overflow: hidden;
@@ -110,40 +109,57 @@ input[type="checkbox"].input-validation-error {
   border: none;
 }
 
-/* line 91, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+/*bottom form popup*/
+/* line 94, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 .bottom-pop {
-  background-color: aliceblue;
+  background-color: #ebf6ff;
+  position: fixed;
   right: 0;
   bottom: 0;
 }
-/* line 96, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+/* line 100, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+.bottom-pop .bottom-header {
+  position: absolute;
+  right: 0;
+  top: 0;
+  min-width: 500px;
+  margin-top: -30px;
+  text-align: right;
+}
+/* line 107, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+.bottom-pop .bottom-header a {
+  min-width: 150px;
+}
+/* line 112, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 .bottom-pop #build {
   padding: 15px;
-  /*background-color:aliceblue;*/
   border: 1px solid #4885B7;
   clear: both;
   max-height: 500px;
   min-width: 500px;
   overflow-y: auto;
+  display: none;
 }
 
-/* line 108, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+/*Side form popup*/
+/* line 126, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 .side-pop {
-  background-color: aliceblue;
+  background-color: #ebf6ff;
   position: fixed;
   left: 0;
   top: 50px;
   z-index: 9999;
 }
-/* line 115, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+/* line 133, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 .side-pop .side-header {
   position: absolute;
   right: 0;
   top: 0;
-  width: 25px;
-  margin-right: -25px;
+  width: 30px;
+  margin-right: -30px;
+  min-height: 300px;
 }
-/* line 122, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+/* line 141, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 .side-pop .rotate270 {
   -webkit-transform: rotate(270deg);
   -moz-transform: rotate(270deg);
@@ -151,14 +167,14 @@ input[type="checkbox"].input-validation-error {
   -o-transform: rotate(270deg);
   transform: rotate(270deg);
 }
-/* line 125, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+/* line 145, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 .side-pop a.rotate270 {
-  width: 150px;
+  min-width: 150px;
   height: 25px;
   margin-left: -70px;
   margin-top: 70px;
 }
-/* line 132, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+/* line 152, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 .side-pop #build {
   border: 1px solid #4885B7;
   clear: both;

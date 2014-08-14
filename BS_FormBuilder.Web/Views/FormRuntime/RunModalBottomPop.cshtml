@@ -3,15 +3,17 @@
     Layout = "~/Views/Shared/_FormRuntimeLayout.cshtml";
 }
 
-<div class="pop-wrapper bottom-pop" id="divForm">
-    <div class="header-div">
-        <a class="btn btn-primary zero-radius" style="float:right;" id="lnkToggleForm">
-            @Model.FormName &nbsp;&nbsp;<i class="icon-chevron-up icon-white"></i>
-        </a>
-    </div>
-    <div id="build" style="display:none;">
-        @using (Html.BeginForm("Edit", "FormRuntime", FormMethod.Post, new { id = "target", @class = "form-horizontal" })) {
+<div class="pop-wrapper" >
+    <div class="bottom-pop" >
+        <div class="bottom-header">
+            <a class="btn btn-primary zero-radius" id="lnkToggleForm">
+                @Model.FormName &nbsp;&nbsp;<i class="icon-chevron-up icon-white" ></i>
+            </a>
+        </div>
+        <div id="build" >
+            @using (Html.BeginForm("Edit", "FormRuntime", FormMethod.Post, new { id = "target", @class = "form-horizontal" })) {
             }
+        </div>
     </div>
 </div>
 
