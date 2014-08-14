@@ -15,7 +15,7 @@
     return {
         initialize: function () {
 
-            var snippetsCollection = new MyFormSnippetsCollection(JSON.parse(formBuilderJson.replace(/&quot;/g, '"')));
+            var snippetsCollection = new MyFormSnippetsCollection(JSON.parse(AppScope.formBuilderJson.replace(/&quot;/g, '"')));
             new FormRuntimeView({
                 title: "Original"
               , collection: snippetsCollection

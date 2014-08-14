@@ -1,0 +1,142 @@
+﻿@import 'base';
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/*Custom Styles*/
+.ajax-loader {
+    background: rgba(0,0,0,.5) url('/Content/Images/ajax-loader.gif') no-repeat 50% 50%;
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:999;
+    display:none;
+}
+
+.backToListLink {
+    font-size:16px;font-weight:normal;
+}
+
+.zero-radius {
+    @include border-radius(0px);
+}
+
+/*Default Modal Form Slide from top*/
+.fixed-popup-button {
+    position: fixed;
+    bottom:0;
+    right:0;
+}
+
+#formModal{
+    background-color:aliceblue;
+    min-width:700px;
+}
+
+/*Css for bottom form popup*/
+.pop-wrapper {
+    position:fixed;
+    max-width: 700px;
+    min-width:500px;
+    overflow:hidden;
+    z-index:9999;
+
+    #target fieldset {
+       border:none;
+    }
+}
+
+.bottom-pop {
+    background-color:aliceblue;
+    right: 0;
+    bottom: 0;
+
+    #build {
+        padding:15px;
+        /*background-color:aliceblue;*/
+        border: 1px solid #4885B7; 
+        clear:both; 
+        max-height:500px;
+        min-width:500px;
+        overflow-y: auto;
+    }
+
+}
+
+.side-pop {
+    background-color:aliceblue;
+    position:fixed;
+    left: 0;
+    top: 50px;
+    z-index:9999;
+
+    .side-header{
+        position:absolute;
+        right:0;top:0;
+        width:25px;
+        margin-right:-25px;
+    }
+
+    .rotate270 {
+        @include transform(rotate(270deg));
+    }
+    a.rotate270 {
+        width:150px;
+        height:25px;
+        margin-left:-70px;
+        margin-top:70px;
+    }
+
+    #build {
+        border: 1px solid #4885B7; 
+        clear:both; 
+        max-height:500px;
+        width:500px;
+        overflow-y: auto;
+        padding:15px;
+        display:none;
+    }
+}
+

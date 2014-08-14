@@ -41,13 +41,15 @@ define([
           var formName = payload[0]["name"];
           var formJson = JSON.stringify(payload);
           var formBuilderJson = JSON.stringify(this);
-          //console.clear();
-          //console.log(formJson);
-          //console.log(formBuilderJson);
           $.ajax({
               type: "POST",
-              url: url,
-              data: AddAntiForgeryToken({ formId: formId, formName: formName, formJson: formJson, formBuilderJson: formBuilderJson }),
+              url: AppScope.url,
+              data: AppScope.AddAntiForgeryToken({
+                  formId: AppScope.formId,
+                  formName: formName,
+                  formJson: formJson,
+                  formBuilderJson: formBuilderJson
+              }),
               success: function (resp) {
                   $(".ajax-loader").hide();
                   if (resp.result == 'Redirect') {

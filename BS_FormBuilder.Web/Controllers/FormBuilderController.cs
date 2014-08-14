@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using BS_FormBuilder.Web.Models.Entities;
 using System.Threading;
+using BS_FormBuilder.Web.Models.ViewModels;
 
 namespace BS_FormBuilder.Web.Controllers
 {
@@ -42,19 +43,19 @@ namespace BS_FormBuilder.Web.Controllers
         }
 
         // GET: /FormBuilder/Edit/5
-        public ActionResult Edit(int? id) {
+        public ActionResult Edit(int? formId) {
             ViewBag.EditMode = "edit";
-            if (id == null) {
+            if (formId == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Form form = db.Forms.Find(id);
+            Form form = db.Forms.Find(formId);
             if (form == null) {
                 return HttpNotFound();
             }
             return View(form);
         }
 
-        // POST: /FormBuilder/Edit/5
+        // POST: /FormBuilder/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Form form) {
@@ -65,6 +66,7 @@ namespace BS_FormBuilder.Web.Controllers
                     dbForm.FormJson = form.FormJson;
                     dbForm.FormBuilderJson = form.FormBuilderJson;
                     dbForm.UpdatedOn = DateTime.Now;
+//ToDo                    dbForm.RowVersion = form.RowVersion;
                     db.SaveChanges();
                     return Json(string.Empty);
                 }
@@ -76,11 +78,11 @@ namespace BS_FormBuilder.Web.Controllers
         }
 
         // GET: /FormBuilder/Delete/5
-        public ActionResult Delete(int? id) {
-            if (id == null) {
+        public ActionResult Delete(int? formId) {
+            if (formId == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Form form = db.Forms.Find(id);
+            Form form = db.Forms.Find(formId);
             if (form == null) {
                 return HttpNotFound();
             }
@@ -88,6 +90,36 @@ namespace BS_FormBuilder.Web.Controllers
             db.SaveChanges();
             return RedirectToAction("List");
         }
+
+        // GET: /FormBuilder/EditFormAttributes/5
+        [HttpGet]
+        public ActionResult EditAttributes(int formId) {
+            Form form = db.Forms.Find(formId);
+            if (form == null) {
+                return HttpNotFound();
+            }
+            FormAttributeViewModel viewModel = new FormAttributeViewModel() { 
+                FormId = form.FormId, 
+                FormDisplayStyle = form.FormDisplayStyle 
+            };
+            return View(form);
+        }
+
+        // POST: /FormBuilder/EditAttributes
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditAttributes(Form form) {
+            Form dbForm = db.Forms.Where(f => f.FormId == form.FormId).SingleOrDefault();
+            if (dbForm != null) {
+                dbForm.FormDisplayStyle = form.FormDisplayStyle;
+                dbForm.RowVersion = form.RowVersion;
+                dbForm.UpdatedOn = DateTime.Now;
+                db.SaveChanges();
+                return RedirectToAction("List");
+            }
+            return View(form);
+        }
+
 
         protected override void Dispose(bool disposing) {
             if (disposing) {

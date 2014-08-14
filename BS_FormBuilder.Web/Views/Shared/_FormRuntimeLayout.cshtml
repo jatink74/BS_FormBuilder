@@ -17,30 +17,25 @@
 
 </head>
 <body>
-    @RenderBody()
     <div class="container">
         <div class="row">
             <div class="span12">
-                Hello There
+                <h3>Form Run <span class="backToListLink"> [ @Html.ActionLink("Back to List", "List", "FormBuilder") ]</span></h3>
+                @RenderBody()
             </div>
         </div>
     </div>
 
-    <script>
-        var editMode = '@ViewBag.EditMode';
-        var formId = '@Model.FormId';
-        var formJson = '@Model.FormJson';
-        var formBuilderJson = '@Model.FormBuilderJson';
-        var url;
-        if (editMode == 'create') {
-            url = '@Url.Action("Create", "FormBuilder")';
-        }
-        else {
-            url = '@Url.Action("Edit", "FormBuilder")';
-        }
-    </script>
+
     <script data-main="/assets/js/main.js" src="/assets/js/lib/require.js"></script>
     <script type="text/javascript">
+        var AppScope = function () {
+            return {
+                formJson: '@Model.FormJson',
+                formBuilderJson: '@Model.FormBuilderJson'
+            }
+        }();
+
         require(['runtime-app'], function (app) {
             app.initialize();
             @RenderSection("scripts", false)

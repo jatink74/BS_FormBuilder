@@ -3,26 +3,27 @@
     Layout = "~/Views/Shared/_FormRuntimeLayout.cshtml";
 }
 
-<div class="side-pop-wrapper" id="divForm" style="margin-left:0;">
-    <div>
-        <a class="btn btn-primary zero-radius" style="float:right;" id="lnkToggleForm">
-            @Model.FormName &nbsp;&nbsp;<i class="icon-chevron-up icon-white"></i>
-        </a>
-    </div>
-    <div id="build" style="display:none;">
-        @using (Html.BeginForm("Edit", "FormRuntime", FormMethod.Post, new { id = "target", @class = "form-horizontal" })) {
-        }
+<div class="pop-wraper">
+    <div class="side-pop" id="divForm">
+        <div class="side-header" >
+            <a class="btn btn-primary zero-radius rotate270" id="lnkToggleForm">
+                @Model.FormName &nbsp;&nbsp;<i class="icon-chevron-down icon-white"></i>
+            </a>
+        </div>
+        <div id="build" >
+            @using (Html.BeginForm("Edit", "FormRuntime", FormMethod.Post, new { id = "target", @class = "form-horizontal" })) {
+            }
+        </div>
     </div>
 </div>
 
 
-
 <script type="text/javascript">
 @section scripts {
-    require(['jquery'], function ($) {
+    require(["jquery"], function ($) {
         $(document).ready(function () {
             $("#lnkToggleForm").click(function toggleForm() {
-                $("#build").slideToggle(300);
+                $("#build").animate({ width: 500px; },400);
                 if ($("#lnkToggleForm i").hasClass("icon-chevron-up")) {
                     $("#lnkToggleForm i").removeClass("icon-chevron-up");
                     $("#lnkToggleForm i").addClass("icon-chevron-down");

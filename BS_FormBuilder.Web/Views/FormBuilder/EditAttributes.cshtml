@@ -1,0 +1,49 @@
+﻿@using BS_FormBuilder.Web.Helpers
+@model BS_FormBuilder.Web.Models.Entities.Form
+
+
+@{
+    ViewBag.Title = "EditFormAttributes";
+}
+
+<h3>Edit Form Attributes <span class="backToListLink"> [ @Html.ActionLink("Back to List", "List") ]</span></h3>
+
+@using (Html.BeginForm("EditAttributes","FormBuilder", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>@Model.FormName</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.FormId)
+        @Html.HiddenFor(model => model.RowVersion)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FormId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10 form-control-static">
+                @Html.DisplayFor(model => model.FormId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FormName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10 form-control-static">
+                @Html.DisplayFor(model => model.FormName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FormDisplayStyle, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.FormDisplayStyle, new { @class = "control-label input-sm" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value=" Save " class="btn btn-info" />
+            </div>
+        </div>
+    </div>
+}

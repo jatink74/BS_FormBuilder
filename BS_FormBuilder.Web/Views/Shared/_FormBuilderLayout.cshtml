@@ -25,7 +25,7 @@
             <!-- Building Form. -->
             <div class="span6">
                 <div class="clearfix">
-                    <h2>@ViewBag.Title<span style="font-size:16px;font-weight:normal;"> [ @Html.ActionLink("Back to List", "List") ]</span></h2>
+                    <h2>@ViewBag.Title<span class="backToListLink"> [ @Html.ActionLink("Back to List", "List") ]</span></h2>
                     <hr>
                     
                     <div id="build">
@@ -57,22 +57,45 @@
     </div> <!-- /container -->
 
     <script type="text/javascript">
-        var editMode = '@ViewBag.EditMode';
+        var AppScope = function () {
+            var url,
+            editMode = '@ViewBag.EditMode';
+
+            if (editMode == 'create') {
+                url = '@Url.Action("Create", "FormBuilder")';
+            }
+            else {
+                url = '@Url.Action("Edit", "FormBuilder")';
+            }
+            return {
+                editMode: '@ViewBag.EditMode',
+                formId: '@Model.FormId',
+                formJson: '@Model.FormJson',
+                formBuilderJson: '@Model.FormBuilderJson',
+                url: url,
+                AddAntiForgeryToken: function (data) {
+                    data.__RequestVerificationToken = $('#__AjaxAntiForgeryForm input[name=__RequestVerificationToken]').val();
+                    return data;
+                },
+            }
+        }();
+
+        @*var editMode = '@ViewBag.EditMode';
         var formId = '@Model.FormId';
         var formJson = '@Model.FormJson';
         var formBuilderJson = '@Model.FormBuilderJson';
         var url;
         if (editMode == 'create') {
             url = '@Url.Action("Create", "FormBuilder")';
-        } 
+        }
         else {
             url = '@Url.Action("Edit", "FormBuilder")';
-        }
+        }*@
 
-        AddAntiForgeryToken = function (data) {
-            data.__RequestVerificationToken = $('#__AjaxAntiForgeryForm input[name=__RequestVerificationToken]').val();
-            return data;
-        };
+        //AddAntiForgeryToken = function (data) {
+        //    data.__RequestVerificationToken = $('#__AjaxAntiForgeryForm input[name=__RequestVerificationToken]').val();
+        //    return data;
+        //};
 
     </script>
 

@@ -50,7 +50,7 @@ define([
             /*TODO Jatin: Implement this using Backbone Model style fetching*/
             //Note Jatin: Need to check if the mode is edit or create and populate if edit.
             var snippetsCollection;
-            if (editMode == 'create') {
+            if (AppScope.editMode == 'create') {
                 snippetsCollection = new MyFormSnippetsCollection([
                   {
                       "title": "Form Name"
@@ -63,7 +63,7 @@ define([
                     }
                   }]);
             } else {
-                snippetsCollection = new MyFormSnippetsCollection(JSON.parse(formBuilderJson.replace(/&quot;/g, '"')));
+                snippetsCollection = new MyFormSnippetsCollection(JSON.parse(AppScope.formBuilderJson.replace(/&quot;/g, '"')));
             }
             new MyFormView({
                 title: "Original"

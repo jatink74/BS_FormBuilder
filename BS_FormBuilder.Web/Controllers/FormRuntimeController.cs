@@ -10,25 +10,44 @@ namespace BS_FormBuilder.Web.Controllers
 {
     public class FormRuntimeController : Controller
     {
+        private static string DefaultViewName = "Run";
+        private static string ModalViewName = "RunModal";
+        private static string RunModalBottomPop = "RunModalBottomPop";
+        private static string RunModalSidePop = "RunModalSidePop";
+
         private FormBuilderContext db = new FormBuilderContext();
 
-        // GET: /FormBuilder/Edit/5
-        public ActionResult Edit(int? id) {
-            ViewBag.EditMode = "edit";
-            if (id == null) {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Form form = db.Forms.Find(id);
+        // GET: /FormRuntime/Run/5
+        public ActionResult Run(int formId) {
+            Form form = db.Forms.Find(formId);
             if (form == null) {
                 return HttpNotFound();
             }
-            return View("EditModalSidePop",form);
+            string viewName;
+            switch (form.FormDisplayStyle) {
+                case FormDisplayStyle.Non_Modal:
+                    viewName = DefaultViewName;
+                    break;
+                case FormDisplayStyle.Slide_From_Top:
+                    viewName = ModalViewName;
+                    break;
+                case FormDisplayStyle.Slide_From_Bottom_Right:
+                    viewName = RunModalBottomPop;
+                    break;
+                case FormDisplayStyle.Slide_From_Side:
+                    viewName = RunModalSidePop;
+                    break;
+                default:
+                    viewName = DefaultViewName;
+                    break;
+            }
+            return View(viewName,form);
         }
 
-        // POST: /FormBuilder/Edit/5  ...ToDo awaiting Arnabs call
+        // POST: /FormRuntime/Run/5  ...ToDo awaiting Arnabs call
         [HttpPost]
-        public ActionResult Edit(int id) {
-            return RedirectToAction("Edit", new {id = id});
+        public ActionResult Run(Form form) {
+            return RedirectToAction("Run", new {formId = form.FormId});
         }
 
     }

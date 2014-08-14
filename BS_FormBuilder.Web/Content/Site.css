@@ -1,107 +1,170 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 3, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
 }
 
 /* Set padding to keep content from hitting the edges */
+/* line 9, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
+/* line 17, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 input,
 select,
 textarea {
-    max-width: 280px;
+  max-width: 280px;
 }
 
 /* styles for validation helpers */
+/* line 22, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 .field-validation-error {
-    color: #b94a48;
+  color: #b94a48;
 }
 
+/* line 26, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 .field-validation-valid {
-    display: none;
+  display: none;
 }
 
+/* line 30, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 input.input-validation-error {
-    border: 1px solid #b94a48;
+  border: 1px solid #b94a48;
 }
 
+/* line 34, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 input[type="checkbox"].input-validation-error {
-    border: 0 none;
+  border: 0 none;
 }
 
+/* line 38, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 .validation-summary-errors {
-    color: #b94a48;
+  color: #b94a48;
 }
 
+/* line 42, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 .validation-summary-valid {
-    display: none;
+  display: none;
 }
 
 /*Custom Styles*/
+/* line 47, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 .ajax-loader {
-    background: rgba(0,0,0,.5) url('/Content/Images/ajax-loader.gif') no-repeat 50% 50%;
-    width:100%;
-    height:100%;
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:999;
-    display:none;
+  background: rgba(0, 0, 0, 0.5) url("/Content/Images/ajax-loader.gif") no-repeat 50% 50%;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: none;
 }
 
+/* line 58, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+.backToListLink {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+/* line 62, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 .zero-radius {
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    -o-border-radius: 0px;
-    border-radius: 0px;
-    border: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
+  border-radius: 0px;
 }
-
 
 /*Default Modal Form Slide from top*/
+/* line 67, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 .fixed-popup-button {
-    position: fixed;
-    bottom:0;
-    right:0;
+  position: fixed;
+  bottom: 0;
+  right: 0;
 }
 
-#formModal{
-    min-width:700px;
+/* line 73, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+#formModal {
+  background-color: aliceblue;
+  min-width: 700px;
 }
 
 /*Css for bottom form popup*/
-.bottom-pop-wrapper {
-    position:fixed;
-    max-width: 700px;
-    min-width:500px;
-    right: 0;
-    bottom: 0;
-    overflow:hidden;
-    z-index:9999;
+/* line 79, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+.pop-wrapper {
+  position: fixed;
+  max-width: 700px;
+  min-width: 500px;
+  overflow: hidden;
+  z-index: 9999;
+}
+/* line 86, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+.pop-wrapper #target fieldset {
+  border: none;
 }
 
-.bottom-pop-wrapper #build {
-    border: 1px solid #4885B7; 
-    clear:both; 
-    max-height:500px;
-    overflow-y: scroll;
+/* line 91, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+.bottom-pop {
+  background-color: aliceblue;
+  right: 0;
+  bottom: 0;
+}
+/* line 96, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+.bottom-pop #build {
+  padding: 15px;
+  /*background-color:aliceblue;*/
+  border: 1px solid #4885B7;
+  clear: both;
+  max-height: 500px;
+  min-width: 500px;
+  overflow-y: auto;
 }
 
-.bottom-pop-wrapper #target fieldset {
-    border:none;
+/* line 108, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+.side-pop {
+  background-color: aliceblue;
+  position: fixed;
+  left: 0;
+  top: 50px;
+  z-index: 9999;
 }
-/*Side form popup*/
-
-.side-pop-wrapper {
-    position:fixed;
-    max-width: 700px;
-    min-width:500px;
-    left: 0;
-    top: 150px;
-    overflow:hidden;
-    z-index:9999;
+/* line 115, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+.side-pop .side-header {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 25px;
+  margin-right: -25px;
+}
+/* line 122, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+.side-pop .rotate270 {
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+/* line 125, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+.side-pop a.rotate270 {
+  width: 150px;
+  height: 25px;
+  margin-left: -70px;
+  margin-top: 70px;
+}
+/* line 132, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+.side-pop #build {
+  border: 1px solid #4885B7;
+  clear: both;
+  max-height: 500px;
+  width: 500px;
+  overflow-y: auto;
+  padding: 15px;
+  display: none;
 }

@@ -126,8 +126,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\DropDownEnumExtension.cs" />
+    <Compile Include="Migrations\201408060546577_InitialCreate.cs" />
+    <Compile Include="Migrations\201408060546577_InitialCreate.Designer.cs">
+      <DependentUpon>201408060546577_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408131316384_Add_Form_FormDisplayType.cs" />
+    <Compile Include="Migrations\201408131316384_Add_Form_FormDisplayType.Designer.cs">
+      <DependentUpon>201408131316384_Add_Form_FormDisplayType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Entities\Form.cs" />
     <Compile Include="Models\Entities\FormBuilderContext.cs" />
+    <Compile Include="Models\ViewModels\FormAttributeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -198,6 +209,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\ajax-loader.gif" />
+    <None Include="Content\sass\Site.scss" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -213,6 +225,9 @@
     <Content Include="assets\js\data\radio.yaml" />
     <Content Include="assets\js\data\select.json" />
     <Content Include="assets\js\data\select.yaml" />
+    <Content Include="Content\sass\ie.scss" />
+    <Content Include="Content\sass\base.scss" />
+    <Content Include="config.rb" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -240,12 +255,21 @@
     <Content Include="Views\FormBuilder\Edit.cshtml" />
     <Content Include="Views\FormBuilder\List.cshtml" />
     <Content Include="Views\Shared\_FormRuntimeLayout.cshtml" />
-    <Content Include="Views\FormRuntime\Edit.cshtml" />
-    <Content Include="Views\FormRuntime\EditModal.cshtml" />
-    <Content Include="Views\FormRuntime\EditModalBottomPop.cshtml" />
-    <Content Include="Views\FormRuntime\EditModalSidePop.cshtml" />
+    <Content Include="Views\FormRuntime\Run.cshtml" />
+    <Content Include="Views\FormRuntime\RunModal.cshtml" />
+    <Content Include="Views\FormRuntime\RunModalBottomPop.cshtml" />
+    <Content Include="Views\FormRuntime\RunModalSidePop.cshtml" />
+    <Content Include="Views\FormBuilder\EditAttributes.cshtml" />
+    <Content Include="Views\FormBuilder\FormTest.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201408060546577_InitialCreate.resx">
+      <DependentUpon>201408060546577_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408131316384_Add_Form_FormDisplayType.resx">
+      <DependentUpon>201408131316384_Add_Form_FormDisplayType.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
