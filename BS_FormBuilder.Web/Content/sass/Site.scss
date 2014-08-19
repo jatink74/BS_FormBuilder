@@ -63,14 +63,16 @@ input[type="checkbox"].input-validation-error {
     @include border-radius(0px);
 }
 
-/*Default Modal Form Slide from top*/
+/*
+// Default Modal Form Slide from top
+
 .fixed-popup-button {
     position: fixed;
     bottom:0;
     right:0;
 }
 
-/*form popup*/
+//form popup
 
 #formModal{
     background-color:$modal-Form-bg-color;
@@ -89,7 +91,7 @@ input[type="checkbox"].input-validation-error {
 }
 
 
-/*bottom form popup*/
+// bottom form popup
 
 .bottom-pop {
     background-color:$modal-Form-bg-color;
@@ -121,7 +123,7 @@ input[type="checkbox"].input-validation-error {
 
 }
 
-/*Side form popup*/
+//Side form popup
 
 .side-pop {
     background-color:$modal-Form-bg-color;
@@ -159,4 +161,5 @@ input[type="checkbox"].input-validation-error {
         display:none;
     }
 }
-
+//End Custom Modal Styles
+*/

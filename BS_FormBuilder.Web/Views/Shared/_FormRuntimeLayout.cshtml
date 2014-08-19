@@ -1,9 +1,7 @@
-﻿@{
+﻿<!DOCTYPE html>
+@{
     Layout = null;
 }
-
-<!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -26,20 +24,23 @@
         </div>
     </div>
 
-
     <script data-main="/assets/js/main.js" src="/assets/js/lib/require.js"></script>
     <script type="text/javascript">
-        var AppScope = function () {
-            return {
-                formJson: '@Model.FormJson',
-                formBuilderJson: '@Model.FormBuilderJson'
-            }
+        window.AppScope = function () {
+            var AppScope = {
+                FormDisplayStyles: {
+                    NON_MODAL: 0,
+                    SLIDE_FROM_TOP: 1,
+                    SLIDE_FROM_BOTTOM_RIGHT: 2,
+                    SLIDE_FROM_SIDE: 3
+                },
+            };
+            require(['runtime-app'], function (app) {
+                app.initialize('@Model.FormId');
+                @RenderSection("scripts", false)
+            })
+            return AppScope;
         }();
-
-        require(['runtime-app'], function (app) {
-            app.initialize();
-            @RenderSection("scripts", false)
-        });
     </script>
 
 

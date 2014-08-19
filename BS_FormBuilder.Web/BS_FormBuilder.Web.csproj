@@ -127,6 +127,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\DropDownEnumExtension.cs" />
+    <Compile Include="Helpers\JsonCamelCaseResult.cs" />
     <Compile Include="Migrations\201408060546577_InitialCreate.cs" />
     <Compile Include="Migrations\201408060546577_InitialCreate.Designer.cs">
       <DependentUpon>201408060546577_InitialCreate.cs</DependentUpon>
@@ -149,8 +150,11 @@
     <Content Include="assets\css\lib\bootstrap.min.css" />
     <Content Include="assets\img\glyphicons-halflings-white.png" />
     <Content Include="assets\img\glyphicons-halflings.png" />
+    <Content Include="assets\img\runtime\inline-feedback-bg.png" />
+    <Content Include="assets\img\runtime\inline-feedback-header.png" />
+    <Content Include="assets\img\runtime\inline-feedback-minus.png" />
+    <Content Include="assets\img\runtime\inline-feedback-plus.png" />
     <Content Include="assets\js\builder-app.js" />
-    <Content Include="assets\js\collections\form-runtime-snippets.js" />
     <Content Include="assets\js\collections\my-form-snippets.js" />
     <Content Include="assets\js\collections\snippets.js" />
     <Content Include="assets\js\helper\bs-multiselect.js" />
@@ -162,8 +166,10 @@
     <Content Include="assets\js\lib\jquery.js" />
     <Content Include="assets\js\lib\require.js" />
     <Content Include="assets\js\lib\text.js" />
+    <Content Include="assets\js\lib\ufb.js" />
     <Content Include="assets\js\lib\underscore.js" />
     <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\models\form-record.js" />
     <Content Include="assets\js\models\snippet.js" />
     <Content Include="assets\js\runtime-app.js" />
     <Content Include="assets\js\templates\app\about.html" />
@@ -176,6 +182,9 @@
     <Content Include="assets\js\templates\popover\popover-select.html" />
     <Content Include="assets\js\templates\popover\popover-textarea-split.html" />
     <Content Include="assets\js\templates\popover\popover-textarea.html" />
+    <Content Include="assets\js\templates\runtime\default.html" />
+    <Content Include="assets\js\templates\runtime\modal-bottom-slide.html" />
+    <Content Include="assets\js\templates\runtime\modal-default.html" />
     <Content Include="assets\js\templates\snippet\appendedcheckbox.html" />
     <Content Include="assets\js\templates\snippet\appendedtext.html" />
     <Content Include="assets\js\templates\snippet\button.html" />
@@ -197,7 +206,6 @@
     <Content Include="assets\js\templates\snippet\snippet-templates.js" />
     <Content Include="assets\js\templates\snippet\textarea.html" />
     <Content Include="assets\js\templates\snippet\textinput.html" />
-    <Content Include="assets\js\views\form-runtime-snippet.js" />
     <Content Include="assets\js\views\my-form-preview-snippet.js" />
     <Content Include="assets\js\views\form-runtime.js" />
     <Content Include="assets\js\views\my-form-snippet.js" />

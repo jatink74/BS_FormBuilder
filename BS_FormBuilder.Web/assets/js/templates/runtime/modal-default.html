@@ -1,0 +1,24 @@
+﻿<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <span class="modal-title" id="myModalLabel">&nbsp;</span>
+            </div>
+            <div class="modal-body">
+                <form id="previewForm" class="form-horizontal" onsubmit="return false;">
+                    <fieldset>
+                        <div id="renderFormInner"></div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a class="btn btn-primary fixed-popup-button zero-radius" data-toggle="modal" data-target="#formModal">
+    <%= formName %> &nbsp;&nbsp;<i class="icon-chevron-up icon-white"></i>
+</a>
+

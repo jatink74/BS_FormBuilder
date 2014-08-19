@@ -1,26 +1,31 @@
 ﻿define([
        "jquery", "underscore", "backbone"
-       , "collections/snippets", "collections/my-form-snippets"
+       , "collections/snippets", "collections/my-form-snippets", "models/form-record"
        , "views/tab", "views/form-runtime"
-       , "text!data/input.json", "text!data/radio.json", "text!data/select.json", "text!data/buttons.json"
-       , "text!templates/app/render.html", "text!templates/app/about.html"
-       , "bootstrap-multiselect"
 ], function (
   $, _, Backbone
-  , SnippetsCollection, MyFormSnippetsCollection
+  , SnippetsCollection, MyFormSnippetsCollection, FormRecord
   , TabView, FormRuntimeView
-  , inputJSON, radioJSON, selectJSON, buttonsJSON
-  , renderTab, aboutTab
 ) {
     return {
-        initialize: function () {
+        initialize: function (id) {
+            var formRecord = new FormRecord({ formId: id });
+            formRecord.fetch({success: function () {
+                this.snippetsCollection = new MyFormSnippetsCollection(JSON.parse(formRecord.get("formBuilderJson")));
+                new FormRuntimeView({
+                    title: "Original",
+                    collection: snippetsCollection,
+                    formDisplayStyle: formRecord.get("formDisplayStyle"),
+                    formName: formRecord.get("formName"),
+                });
 
-            var snippetsCollection = new MyFormSnippetsCollection(JSON.parse(AppScope.formBuilderJson.replace(/&quot;/g, '"')));
-            new FormRuntimeView({
-                title: "Original"
-              , collection: snippetsCollection
-            });
-
+                //if (formRecord.get("formDisplayStyle") == AppScope.FormDisplayStyles.NON_MODAL) {
+                //    new FormRuntimeView({title: "Original", collection: snippetsCollection });
+                //}
+                //else {
+                //    alert("Modal Style");
+                //}
+            }});
         }
     }
 });
