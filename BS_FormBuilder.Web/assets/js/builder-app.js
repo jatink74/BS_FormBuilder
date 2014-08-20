@@ -79,6 +79,6 @@ define([
                 $(".ajax-loader").hide();
             });
 
-        }()
+        }
     }
 });

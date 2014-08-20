@@ -20,7 +20,7 @@
         </div>
     </div>
 
-    <script data-main="/assets/js/main.js" src="/assets/js/lib/require.js"></script>
+    <script src="/assets/js/lib/require.js"></script>
     <script type="text/javascript">
         window.AppScope = function () {
             var AppScope = {
@@ -31,10 +31,12 @@
                     SLIDE_FROM_SIDE: 3
                 },
             };
-            require(['runtime-app'], function (app) {
-                app.initialize('@Model.FormId');
-                @RenderSection("scripts", false)
-            })
+            require(['/assets/js/main.js'], function () {
+                require(['app/runtime-app'], function (app) {
+                    app.initialize('@Model.FormId');
+                    @RenderSection("scripts", false)
+                });
+            });
             return AppScope;
         }();
     </script>

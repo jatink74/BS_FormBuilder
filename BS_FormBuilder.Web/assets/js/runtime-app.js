@@ -18,13 +18,6 @@
                     formDisplayStyle: formRecord.get("formDisplayStyle"),
                     formName: formRecord.get("formName"),
                 });
-
-                //if (formRecord.get("formDisplayStyle") == AppScope.FormDisplayStyles.NON_MODAL) {
-                //    new FormRuntimeView({title: "Original", collection: snippetsCollection });
-                //}
-                //else {
-                //    alert("Modal Style");
-                //}
             }});
         }
     }
