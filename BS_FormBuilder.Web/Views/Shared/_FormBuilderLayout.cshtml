@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @Styles.Render("~/assets/css")
     <link href="~/Content/Site.css" rel="stylesheet" />
-        @Scripts.Render("~/bundles/modernizr")
+    @*@Scripts.Render("~/bundles/modernizr")*@
     <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -79,24 +79,6 @@
                 },
             }
         }();
-
-        @*var editMode = '@ViewBag.EditMode';
-        var formId = '@Model.FormId';
-        var formJson = '@Model.FormJson';
-        var formBuilderJson = '@Model.FormBuilderJson';
-        var url;
-        if (editMode == 'create') {
-            url = '@Url.Action("Create", "FormBuilder")';
-        }
-        else {
-            url = '@Url.Action("Edit", "FormBuilder")';
-        }*@
-
-        //AddAntiForgeryToken = function (data) {
-        //    data.__RequestVerificationToken = $('#__AjaxAntiForgeryForm input[name=__RequestVerificationToken]').val();
-        //    return data;
-        //};
-
     </script>
 
     <script data-main="/assets/js/main.js" src="/assets/js/lib/require.js"></script>

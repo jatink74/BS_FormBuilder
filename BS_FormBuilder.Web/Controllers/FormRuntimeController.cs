@@ -13,9 +13,6 @@ namespace BS_FormBuilder.Web.Controllers
     public class FormRuntimeController : Controller
     {
         private static string DefaultViewName = "Run";
-        private static string ModalViewName = "RunModal";
-        private static string RunModalBottomPop = "RunModalBottomPop";
-        private static string RunModalSidePop = "RunModalSidePop";
 
         private FormBuilderContext db = new FormBuilderContext();
 
@@ -26,23 +23,6 @@ namespace BS_FormBuilder.Web.Controllers
                 return HttpNotFound();
             }
             string viewName = DefaultViewName;
-            //switch (form.FormDisplayStyle) {
-            //    case FormDisplayStyle.Non_Modal:
-            //        viewName = DefaultViewName;
-            //        break;
-            //    case FormDisplayStyle.Slide_From_Top:
-            //        viewName = ModalViewName;
-            //        break;
-            //    case FormDisplayStyle.Slide_From_Bottom_Right:
-            //        viewName = RunModalBottomPop;
-            //        break;
-            //    case FormDisplayStyle.Slide_From_Side:
-            //        viewName = RunModalSidePop;
-            //        break;
-            //    default:
-            //        viewName = DefaultViewName;
-            //        break;
-            //}
             return View(viewName,form);
         }
 
