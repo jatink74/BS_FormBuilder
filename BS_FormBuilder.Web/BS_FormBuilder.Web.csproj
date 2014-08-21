@@ -158,11 +158,13 @@
     <Content Include="assets\js\collections\my-form-snippets.js" />
     <Content Include="assets\js\collections\snippets.js" />
     <Content Include="assets\js\helper\bs-multiselect.js" />
+    <Content Include="assets\js\helper\app-constants.js" />
     <Content Include="assets\js\helper\pubsub.js" />
     <Content Include="assets\js\lib\backbone.js" />
     <Content Include="assets\js\lib\bootstrap-multiselect.js" />
     <Content Include="assets\js\lib\bootstrap.js" />
     <Content Include="assets\js\lib\build.js" />
+    <Content Include="assets\js\lib\domReady.js" />
     <Content Include="assets\js\lib\jquery.js" />
     <Content Include="assets\js\lib\require.js" />
     <Content Include="assets\js\lib\text.js" />
@@ -268,7 +270,6 @@
     <Content Include="Views\FormRuntime\RunModalBottomPop.cshtml" />
     <Content Include="Views\FormRuntime\RunModalSidePop.cshtml" />
     <Content Include="Views\FormBuilder\EditAttributes.cshtml" />
-    <Content Include="Views\FormBuilder\FormTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201408060546577_InitialCreate.resx">

@@ -15,47 +15,39 @@ body {
   padding-right: 15px;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-/* line 17, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
-input,
-select,
-textarea {
-  max-width: 280px;
-}
-
 /* styles for validation helpers */
-/* line 22, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+/* line 16, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 .field-validation-error {
   color: #b94a48;
 }
 
-/* line 26, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+/* line 20, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 .field-validation-valid {
   display: none;
 }
 
-/* line 30, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+/* line 24, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 input.input-validation-error {
   border: 1px solid #b94a48;
 }
 
-/* line 34, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+/* line 28, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 input[type="checkbox"].input-validation-error {
   border: 0 none;
 }
 
-/* line 38, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+/* line 32, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 .validation-summary-errors {
   color: #b94a48;
 }
 
-/* line 42, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+/* line 36, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 .validation-summary-valid {
   display: none;
 }
 
 /*Custom Styles*/
-/* line 47, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+/* line 41, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 .ajax-loader {
   background: rgba(0, 0, 0, 0.5) url("/Content/Images/ajax-loader.gif") no-repeat 50% 50%;
   width: 100%;
@@ -67,13 +59,13 @@ input[type="checkbox"].input-validation-error {
   display: none;
 }
 
-/* line 58, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+/* line 52, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 .backToListLink {
   font-size: 16px;
   font-weight: normal;
 }
 
-/* line 62, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+/* line 56, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
 .zero-radius {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;

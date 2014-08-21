@@ -10,15 +10,16 @@
     return {
         initialize: function (id) {
             var formRecord = new FormRecord({ formId: id });
-            formRecord.fetch({success: function () {
-                this.snippetsCollection = new MyFormSnippetsCollection(JSON.parse(formRecord.get("formBuilderJson")));
-                new FormRuntimeView({
-                    title: "Original",
-                    collection: snippetsCollection,
-                    formDisplayStyle: formRecord.get("formDisplayStyle"),
-                    formName: formRecord.get("formName"),
-                });
-            }});
+            formRecord.fetch({
+                success: function () {
+                    var snippetsCollection = new MyFormSnippetsCollection(JSON.parse(formRecord.get("formBuilderJson")));
+                    new FormRuntimeView({
+                        title: "Original",
+                        collection: snippetsCollection,
+                        formRecord: formRecord,
+                    });
+                }
+            });
         }
     }
 });

@@ -1,19 +1,19 @@
 define([
        "jquery" , "underscore" , "backbone"
-       , "collections/snippets" , "collections/my-form-snippets"
+       , "collections/snippets", "collections/my-form-snippets", "models/form-record"
        , "views/tab" , "views/my-form"
        , "text!data/input.json", "text!data/radio.json", "text!data/select.json", "text!data/buttons.json"
        , "text!templates/app/render.html", "text!templates/app/about.html"
        , "bootstrap-multiselect"
 ], function(
   $, _, Backbone
-  , SnippetsCollection, MyFormSnippetsCollection
+  , SnippetsCollection, MyFormSnippetsCollection, FormRecord
   , TabView, MyFormView
   , inputJSON, radioJSON, selectJSON, buttonsJSON
   , renderTab, aboutTab
 ){
     return {
-        initialize: function () {
+        initialize: function (id) {
 
             //Bootstrap tabs from json.
             new TabView({
@@ -36,10 +36,10 @@ define([
                 title: "Rendered"
               , content: renderTab
             });
-            new TabView({
-                title: "About"
-              , content: aboutTab
-            });
+            //new TabView({
+            //    title: "About"
+            //  , content: aboutTab
+            //});
 
 
             //Make the first tab active!
@@ -47,14 +47,13 @@ define([
             $("#formtabs li").first().addClass("active");
             // Bootstrap "My Form" with 'Form Name' snippet.
 
-            /*TODO Jatin: Implement this using Backbone Model style fetching*/
-            //Note Jatin: Need to check if the mode is edit or create and populate if edit.
-            var snippetsCollection;
-            if (AppScope.editMode == 'create') {
+            var formRecord = new FormRecord({ formId: id });
+            var snippetsCollection = 1;
+            if (id == 0) {
                 snippetsCollection = new MyFormSnippetsCollection([
                   {
-                      "title": "Form Name"
-                    , "fields": {
+                      "title": "Form Name",
+                      "fields": {
                         "name": {
                             "label": "Form Name"
                           , "type": "input"
@@ -62,23 +61,28 @@ define([
                         }
                     }
                   }]);
+                  renderForm();
             } else {
-                snippetsCollection = new MyFormSnippetsCollection(JSON.parse(AppScope.formBuilderJson.replace(/&quot;/g, '"')));
+                formRecord.fetch({
+                    success: function () {
+                        snippetsCollection = new MyFormSnippetsCollection(JSON.parse(formRecord.get("formBuilderJson")));
+                        renderForm();
+                    }
+                });
             }
-            new MyFormView({
-                title: "Original"
-              , collection: snippetsCollection
-            });
-
-
+            function renderForm() {
+                new MyFormView({
+                    title: "Original",
+                    collection: snippetsCollection,
+                    formRecord: formRecord,
+                });
+            }
             $(document).ajaxStart(function () {
                 $(".ajax-loader").show();
             });
-
             $(document).ajaxComplete(function () {
                 $(".ajax-loader").hide();
             });
-
         }
     }
 });

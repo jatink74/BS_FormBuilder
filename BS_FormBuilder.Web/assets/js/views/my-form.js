@@ -1,15 +1,16 @@
 define([
        "jquery", "underscore", "backbone"
       , "views/temp-snippet"
-      , "helper/pubsub"
+      , "helper/pubsub", "helper/app-constants"
 ], function (
   $, _, Backbone
   , TempSnippetView
-  , PubSub
+  , PubSub, AppConstants
 ) {
   return Backbone.View.extend({
-    tagName: "fieldset"
-    , initialize: function(){
+    tagName: "div"
+    , className: "form-div"
+    , initialize: function (options) {
       this.collection.on("add", this.render, this);
       this.collection.on("remove", this.render, this);
       this.collection.on("change", this.render, this);
@@ -17,31 +18,44 @@ define([
       PubSub.on("tempMove", this.handleTempMove, this);
       PubSub.on("tempDrop", this.handleTempDrop, this);
       this.$build = $("#build");
-      
+
+      this.formRecord = options.formRecord;
+      this.displayClass = "default";
+      switch (this.formRecord.get("formDisplayStyle")) {
+          case AppConstants.FormDisplayStyles.NON_MODAL:
+              this.displayClass = "default";
+              break;
+          case AppConstants.FormDisplayStyles.SLIDE_FROM_TOP:
+              this.displayClass = "modal-default";
+              break;
+          case AppConstants.FormDisplayStyles.SLIDE_FROM_BOTTOM_RIGHT:
+              this.displayClass = "modal-bottom-slide";
+              break;
+          default:
+              break;
+      }
+
       this.render();
     }
-
-      /* @NOTE Jatin: Event for the "Save Form" button. */
     , events: {
         "click #saveForm": "saveForm"
     }
     , render: function () {
       //Render Snippet Views
       this.$el.empty();
-      /* @NOTE Jatin: The "Save Form" button. */
       this.$el.append("<button id='saveForm' type='button' class='btn btn-info'>Save Form</button>");
       var that = this;
       _.each(this.collection.renderAll(), function(snippet){
         that.$el.append(snippet);
       });
       this.$el.appendTo("#build form");
-
+      this.$el.addClass(this.displayClass);
       /* @NOTE Jatin: The Rendered Tab now displays form instead of form code */
       $("#render").empty();
       _.each(this.collection.renderMyFormPreview(), function (snippet) {
           $("#render").append(snippet);
       });
-
+      $("#render").addClass(this.displayClass);
       this.delegateEvents();
     }
 
