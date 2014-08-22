@@ -1,24 +1,26 @@
 define([
        "jquery", "underscore", "backbone"
-      , "views/temp-snippet"
+      , "views/temp-snippet", "text!templates/app/tab-nav.html"
       , "helper/pubsub", "helper/app-constants"
 ], function (
   $, _, Backbone
-  , TempSnippetView
+  , TempSnippetView, _tabNavTemplate
   , PubSub, AppConstants
 ) {
   return Backbone.View.extend({
     tagName: "div"
-    , className: "form-div"
+    , className: "tab-pane builder"
     , initialize: function (options) {
-      this.collection.on("add", this.render, this);
-      this.collection.on("remove", this.render, this);
-      this.collection.on("change", this.render, this);
+        this.collection.on("add", this.renderFormCollection, this);
+        this.collection.on("remove", this.renderFormCollection, this);
+        this.collection.on("change", this.renderFormCollection, this);
       PubSub.on("mySnippetDrag", this.handleSnippetDrag, this);
       PubSub.on("tempMove", this.handleTempMove, this);
       PubSub.on("tempDrop", this.handleTempDrop, this);
       this.$build = $("#build");
-
+      this.title = this.options.title;
+      this.id = this.options.title.toLowerCase().replace(/\W/g, '');
+      this.tabNavTemplate = _.template(_tabNavTemplate);
       this.formRecord = options.formRecord;
       this.displayClass = "default";
       switch (this.formRecord.get("formDisplayStyle")) {
@@ -41,22 +43,28 @@ define([
         "click #saveForm": "saveForm"
     }
     , render: function () {
-      //Render Snippet Views
-      this.$el.empty();
-      this.$el.append("<button id='saveForm' type='button' class='btn btn-info'>Save Form</button>");
-      var that = this;
-      _.each(this.collection.renderAll(), function(snippet){
-        that.$el.append(snippet);
-      });
-      this.$el.appendTo("#build form");
-      this.$el.addClass(this.displayClass);
-      /* @NOTE Jatin: The Rendered Tab now displays form instead of form code */
-      $("#render").empty();
-      _.each(this.collection.renderMyFormPreview(), function (snippet) {
-          $("#render").append(snippet);
-      });
-      $("#render").addClass(this.displayClass);
-      this.delegateEvents();
+
+        this.renderFormCollection();
+        this.renderTab();
+    }
+
+    , renderFormCollection: function () {
+        //Render Snippet Views
+        this.$el.empty();
+        this.$el.append("<button id='saveForm' type='button' class='btn btn-info'>Save Form</button>");
+        var that = this;
+        _.each(this.collection.renderAll(), function (snippet) {
+            that.$el.append(snippet);
+        });
+        this.delegateEvents();
+    }
+
+    , renderTab: function() {
+        // Render & append nav for tab
+        $("#designformtabs").append(this.tabNavTemplate({ title: this.title, id: this.id }))
+        this.$el.attr("id", this.id);
+        this.$el.appendTo(".form-builder-tab .tab-content");
+        this.$el.addClass(this.displayClass);
     }
 
     , getBottomAbove: function(eventY){
@@ -94,17 +102,18 @@ define([
       }
     }
 
-    , handleTempDrop: function(mouseEvent, model, index){
-      if(mouseEvent.pageX >= this.$build.position().left &&
-         mouseEvent.pageX < (this.$build.width() + this.$build.position().left) &&
-         mouseEvent.pageY >= this.$build.position().top &&
-         mouseEvent.pageY < (this.$build.height() + this.$build.position().top)) {
-        var index = $(".target").index();
-        $(".target").removeClass("target");
-        this.collection.add(model,{at: index+1});
-      } else {
-        $(".target").removeClass("target");
-      }
+    , handleTempDrop: function (mouseEvent, model, index) {
+        if (this.$el.hasClass("active") &&
+           mouseEvent.pageX >= this.$build.position().left &&
+           mouseEvent.pageX < (this.$build.width() + this.$build.position().left) &&
+           mouseEvent.pageY >= this.$build.position().top &&
+           mouseEvent.pageY < (this.$build.height() + this.$build.position().top)) {
+            var index = $(".target").index();
+            $(".target").removeClass("target");
+            this.collection.add(model, { at: index + 1 });
+        } else {
+            $(".target").removeClass("target");
+        }
     }
       /* @NOTE Jatin: Ask the collection to save themselves. */
     , saveForm: function () {

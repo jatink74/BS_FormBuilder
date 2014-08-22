@@ -175,7 +175,6 @@
     <Content Include="assets\js\models\snippet.js" />
     <Content Include="assets\js\runtime-app.js" />
     <Content Include="assets\js\templates\app\about.html" />
-    <Content Include="assets\js\templates\app\render.html" />
     <Content Include="assets\js\templates\app\tab-nav.html" />
     <Content Include="assets\js\templates\app\temp.html" />
     <Content Include="assets\js\templates\popover\popover-checkbox.html" />
@@ -210,7 +209,9 @@
     <Content Include="assets\js\templates\snippet\textinput.html" />
     <Content Include="assets\js\views\my-form-preview-snippet.js" />
     <Content Include="assets\js\views\form-runtime.js" />
+    <Content Include="assets\js\views\my-form-preview.js" />
     <Content Include="assets\js\views\my-form-snippet.js" />
+    <Content Include="assets\js\views\my-form-tabs.js" />
     <Content Include="assets\js\views\my-form.js" />
     <Content Include="assets\js\views\snippet.js" />
     <Content Include="assets\js\views\tab-snippet.js" />

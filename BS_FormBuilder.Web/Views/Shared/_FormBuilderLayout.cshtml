@@ -27,9 +27,18 @@
                 <div class="clearfix">
                     <h2>@ViewBag.Title<span class="backToListLink"> [ @Html.ActionLink("Back to List", "List") ]</span></h2>
                     <hr>
-                    
-                    <div id="build" >
-                        <form id="target" class="form-horizontal"></form>
+
+                    <div class="tabbable form-builder-tab">
+                        <ul class="nav nav-tabs" id="designformtabs">
+                            <!-- Form and Preview Tab nav -->
+                        </ul>
+                        <div id="build">
+                            <form id="target" class="form-horizontal">
+                                <div class="tab-content">
+                                    <!-- Design/Preview Tabs go here -->
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -38,7 +47,7 @@
             <div class="span5">
                 <h2>Drag & Drop components</h2>
                 <hr>
-                <div class="tabbable">
+                <div class="tabbable component-tab">
                     <ul class="nav nav-tabs" id="formtabs">
                         <!-- Tab nav -->
                     </ul>

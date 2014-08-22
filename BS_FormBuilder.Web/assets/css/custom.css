@@ -14,12 +14,12 @@ body {
   min-height: 500px;
 }
 
-#target .form-div, #preview-container fieldset {
+/*#target .form-div {
   border: 1px solid #ccc;
   min-height: 200px;
   padding: 5px;
   padding-bottom: 30px;
-}
+}*/
 
 .component {
   cursor: pointer;
@@ -104,18 +104,38 @@ form .popover form {
  user-select: none;
 }
 
-#target .form-div {
-    overflow-x: auto;
+.preview input {
+    cursor: text;
 }
 
-#target div.default {
+.preview, .builder {
+      border: 1px solid #ccc;
+      min-height: 200px;
+      padding: 5px;
+      padding-bottom: 30px;
+      overflow-x:auto;
+}
+
+/*.preview {
+      border: 1px solid #ccc;
+      min-height: 200px;
+      padding: 5px;
+      padding-bottom: 30px;
+      overflow-x:auto;
+}*/
+
+/*.preview .form-div {
+    overflow-x: auto;
+}*/
+
+.preview.default {
     width:650px;
 }
 
-#target div.modal-default {
+.preview.modal-default {
     width:560px;
 }
 
-#target div.modal-bottom-slide {
+.preview.modal-bottom-slide {
     width:291px;
 }
