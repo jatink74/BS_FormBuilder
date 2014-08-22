@@ -1,22 +1,28 @@
 ﻿define([
        'jquery', 'underscore', 'backbone'
       , "views/my-form", "views/my-form-preview"
+      , "text!templates/app/my-form-tabs.html"
 
 ], function ($, _, Backbone,
-             MyFormView, MyFormPreviewView)
+             MyFormView, MyFormPreviewView,
+             _myFormTabsTemplate)
 {
     return Backbone.View.extend({
         tagName: "div"
-      , className: "tab-pane-test"
       , initialize: function (options) {
           this.id = this.options.title.toLowerCase().replace(/\W/g, '');
-          //this.tabNavTemplate = _.template(_tabNavTemplate);
+          this.myFormTabsTemplate = _.template(_myFormTabsTemplate);
 
           this.formRecord = options.formRecord;
 
           this.render();
       }
+      , events: {
+          "click .save-form": "saveForm"
+      }
       , render: function () {
+          this.$el.html(this.myFormTabsTemplate());
+          this.$el.appendTo(".my-form-container");
           this.myFormView = new MyFormView({
               title: "Form Design",
               collection: this.collection,
@@ -28,6 +34,9 @@
               formRecord: this.formRecord,
           });
           this.delegateEvents();
+      },
+      saveForm: function () {
+          this.myFormView.saveForm();
       }
     });
 });

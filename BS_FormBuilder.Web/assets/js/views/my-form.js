@@ -39,9 +39,11 @@ define([
 
       this.render();
     }
-    , events: {
-        "click #saveForm": "saveForm"
-    }
+    //, events: {
+    //    //"click #saveForm": "saveForm"
+    //    "click .save-form": "saveForm"
+        
+    //}
     , render: function () {
 
         this.renderFormCollection();
@@ -51,7 +53,7 @@ define([
     , renderFormCollection: function () {
         //Render Snippet Views
         this.$el.empty();
-        this.$el.append("<button id='saveForm' type='button' class='btn btn-info'>Save Form</button>");
+        //this.$el.append("<button id='saveForm' type='button' class='btn btn-info'>Save Form</button>");
         var that = this;
         _.each(this.collection.renderAll(), function (snippet) {
             that.$el.append(snippet);

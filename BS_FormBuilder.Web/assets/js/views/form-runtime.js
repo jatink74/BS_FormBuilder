@@ -45,7 +45,6 @@
           });
           this.$el.appendTo("#renderForm");
           this.delegateEvents();
-
       }
     })
 });

@@ -175,6 +175,7 @@
     <Content Include="assets\js\models\snippet.js" />
     <Content Include="assets\js\runtime-app.js" />
     <Content Include="assets\js\templates\app\about.html" />
+    <Content Include="assets\js\templates\app\my-form-tabs.html" />
     <Content Include="assets\js\templates\app\tab-nav.html" />
     <Content Include="assets\js\templates\app\temp.html" />
     <Content Include="assets\js\templates\popover\popover-checkbox.html" />

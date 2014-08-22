@@ -25,10 +25,13 @@
             <!-- Building Form. -->
             <div class="span7">
                 <div class="clearfix">
-                    <h2>@ViewBag.Title<span class="backToListLink"> [ @Html.ActionLink("Back to List", "List") ]</span></h2>
+                    <h2>@ViewBag.Title
+                        <span class="backToListLink"> [ @Html.ActionLink("Back to List", "List") ]</span>
+                    </h2>
                     <hr>
-
-                    <div class="tabbable form-builder-tab">
+                    <div class="my-form-container"></div>
+                    @*<div class="tabbable form-builder-tab">
+                        <span><button id='saveForm' type='button' class='btn btn-info save-form' style="float:right;">Save Form</button></span>
                         <ul class="nav nav-tabs" id="designformtabs">
                             <!-- Form and Preview Tab nav -->
                         </ul>
@@ -39,7 +42,7 @@
                                 </div>
                             </form>
                         </div>
-                    </div>
+                    </div>*@
                 </div>
             </div>
             <!-- / Building Form. -->
