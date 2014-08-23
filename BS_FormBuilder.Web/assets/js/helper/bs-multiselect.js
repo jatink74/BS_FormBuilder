@@ -1,5 +1,5 @@
 ﻿define([
-       "jquery", "underscore", "backbone",
+       "jquery", "underscore", "backbone"
       , "bootstrap"
       , "bootstrap-multiselect"
 
@@ -12,8 +12,8 @@
             if (bsMultiSelect) {
                 bsMultiSelect.multiselect({
                     buttonClass: 'btn ' + inputSize,
-                })
+                });
             }
         }
-    }
+    };
 });

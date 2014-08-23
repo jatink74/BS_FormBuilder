@@ -139,3 +139,20 @@ form .popover form {
 .preview.modal-bottom-slide {
     width:291px;
 }
+
+/*Export Form Code Dialog*/
+#exportFormModal {
+    display:none;
+    width:700px;
+    height:500px;
+}
+
+#exportFormModal textarea{
+    width:650px;
+    height:450px;
+}
+
+#exportFormModal .modal-body {
+    overflow:hidden;
+}
+/*End*/

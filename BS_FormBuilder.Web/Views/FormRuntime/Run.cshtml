@@ -4,7 +4,8 @@
     Layout = "~/Views/Shared/_FormRuntimeLayout.cshtml";
 }
 
-
-<div id="renderForm" class="span6">
-</div>
+@using (Html.BeginForm("Run", "FormRuntime", FormMethod.Post)) {
+    <div id="renderForm" class="span6">
+    </div>
+}
 

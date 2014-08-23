@@ -71,10 +71,6 @@ define([
                 $("#designformtabs li").first().addClass("active");
             }
 
-            //$(document).ready(function () {
-
-            //});
-
             $(document).ajaxStart(function () {
                 $(".ajax-loader").show();
             });

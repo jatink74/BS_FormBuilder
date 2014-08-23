@@ -93,13 +93,6 @@
         }();
     </script>
 
-    <script src="/assets/js/lib/require.js"></script>
-    <script>
-        require(['/assets/js/main.js'], function () {
-            require(['app/builder-app'], function (app) {
-                app.initialize('@Model.FormId');
-            });
-        });
-    </script>
+    <script src="/assets/js/lib/require.js" data-main="/assets/js/main-built.js" data-start="app/builder-app" data-form-id="@Model.FormId"></script>
 </body>
 </html>

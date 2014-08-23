@@ -9,7 +9,7 @@ require.config({
       exports: '_'
     },
     'bootstrap-multiselect': {
-        deps: ['bootstrap']
+        deps: ['bootstrap', 'jquery']
     },
     'bootstrap': {
       deps: ['jquery'],
@@ -34,3 +34,16 @@ require.config({
 //require(['app/app'], function (app) {
 //    //app.initialize();
 //});
+
+require(["jquery", "app/builder-app", "app/runtime-app"], function ($) {
+    startModuleName = $("script[data-main][data-start]").attr("data-start");
+    formId = $("script[data-main][data-start]").attr("data-form-id");
+    if (startModuleName) {
+        require([startModuleName], function (startModule) {
+            $(function () {
+                var fn = $.isFunction(startModule) ? startModule : startModule.initialize;
+                if (fn) { fn(formId); }
+            });
+        });
+    }
+});

@@ -176,6 +176,7 @@
     <Content Include="assets\js\runtime-app.js" />
     <Content Include="assets\js\templates\app\about.html" />
     <Content Include="assets\js\templates\app\my-form-tabs.html" />
+    <Content Include="assets\js\templates\app\export-form.html" />
     <Content Include="assets\js\templates\app\tab-nav.html" />
     <Content Include="assets\js\templates\app\temp.html" />
     <Content Include="assets\js\templates\popover\popover-checkbox.html" />
@@ -247,6 +248,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="TestRun.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

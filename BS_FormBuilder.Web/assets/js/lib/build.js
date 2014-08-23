@@ -15,7 +15,11 @@
     'bootstrap': {
       deps: ['jquery'],
       exports: '$.fn.popover'
-    }
+    },
+    'ufb': {
+        deps: ['jquery'],
+        exports: 'ufb'
+    },
   }
   , paths: {
     app         : ".."
