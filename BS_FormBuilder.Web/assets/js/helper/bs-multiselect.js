@@ -12,6 +12,7 @@
             if (bsMultiSelect) {
                 bsMultiSelect.multiselect({
                     buttonClass: 'btn ' + inputSize,
+                    checkboxName: ''
                 });
             }
         }
