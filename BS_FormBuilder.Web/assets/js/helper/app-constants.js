@@ -3,8 +3,7 @@
         FormDisplayStyles: {
             NON_MODAL: 0,
             SLIDE_FROM_TOP: 1,
-            SLIDE_FROM_BOTTOM_RIGHT: 2,
-            SLIDE_FROM_SIDE: 3
+            SLIDE_FROM_BOTTOM_RIGHT: 2
         },
         DefaultWidth: 850,
         ModalDefaultWidth: 560,

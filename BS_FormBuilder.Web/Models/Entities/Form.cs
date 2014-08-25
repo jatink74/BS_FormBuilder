@@ -9,14 +9,14 @@ using System.Web;
 namespace BS_FormBuilder.Web.Models.Entities {
 
     public enum FormDisplayStyle {
-        [Description("Non Modal")]
+        [Description("Non Modal(Landing Page)")]
         Non_Modal,
-        [Description("Slide From Top")]
+        [Description("Modal Window")]
         Slide_From_Top,
-        [Description("Slide From Bottom Right")]
-        Slide_From_Bottom_Right,
-        [Description("Slide From Side")]
-        Slide_From_Side
+        [Description("Pushup From Bottom")]
+        Slide_From_Bottom_Right
+        //[Description("Slide From Side")]
+        //Slide_From_Side
     }
 
     public class Form {

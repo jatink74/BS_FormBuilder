@@ -36,7 +36,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.FormDisplayStyle, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.FormDisplayStyle, new { @class = "control-label input-sm" })
+                @Html.EnumDropDownListFor(model => model.FormDisplayStyle, new { @class = "control-label input-sm",
+                                                                                 style="text-align:left"})
             </div>
         </div>
 
