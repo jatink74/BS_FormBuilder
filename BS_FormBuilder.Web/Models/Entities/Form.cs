@@ -13,7 +13,7 @@ namespace BS_FormBuilder.Web.Models.Entities {
         Non_Modal,
         [Description("Modal Window")]
         Slide_From_Top,
-        [Description("Pushup From Bottom")]
+        [Description("Slide From Bottom")]
         Slide_From_Bottom_Right
         //[Description("Slide From Side")]
         //Slide_From_Side

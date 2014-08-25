@@ -73,3 +73,8 @@ input[type="checkbox"].input-validation-error {
   -o-border-radius: 0px;
   border-radius: 0px;
 }
+
+/* line 60, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+.radio-common {
+  margin-top: 4px;
+}
