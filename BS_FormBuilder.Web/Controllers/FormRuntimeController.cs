@@ -26,8 +26,15 @@ namespace BS_FormBuilder.Web.Controllers
             return View(viewName,form);
         }
 
-        public ActionResult RunData(int formId) {
-            Form form = db.Forms.Find(formId);
+        public ActionResult RunData(Guid? guid, int? formId) {
+            Form form = null;
+            if (formId == null || formId == 0) {
+                form = db.Forms.Where(f => f.Guid == guid).SingleOrDefault();
+            }
+            else {
+                form = db.Forms.Find(formId);
+            }
+
             if (form == null) {
                 return HttpNotFound();
             }

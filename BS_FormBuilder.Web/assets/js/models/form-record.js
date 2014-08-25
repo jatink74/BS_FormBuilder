@@ -3,8 +3,16 @@
 ], function ($, _, Backbone) {
     return Backbone.Model.extend({
         idAttribute: 'formId',
-        urlRoot: function () {
-            return '/FormRuntime/RunData/';
+        urlRoot: '/FormRuntime/RunData/',
+        url: function () {
+            var url;
+            if (this.get("guid") == '') {
+                return url = this.urlRoot + this.id;
+            }
+            else {
+                return url = this.urlRoot + this.get("guid")
+            }
+            return ;
         },
         defaults: {
             formId: 0,
@@ -14,7 +22,8 @@
             createdOn: '',
             updatedOn: '',
             rowVersion: '',
-            formDisplayStyle: ''
+            formDisplayStyle: '',
+            guid:''
         },
 
         initialize: function () {

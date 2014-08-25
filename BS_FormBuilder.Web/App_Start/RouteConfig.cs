@@ -11,9 +11,16 @@ namespace BS_FormBuilder.Web {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "FormRun",
+                name: "FormRunFormId",
                 url: "{controller}/{action}/{formId}",
-                defaults: new { formId = UrlParameter.Optional }
+                defaults: new { formId = UrlParameter.Optional },
+                constraints: new { formId = @"\d+" }
+            );
+
+            routes.MapRoute(
+                name: "FormRunGuid",
+                url: "{controller}/{action}/{guid}",
+                defaults: new { guid = UrlParameter.Optional }
             );
 
             routes.MapRoute(

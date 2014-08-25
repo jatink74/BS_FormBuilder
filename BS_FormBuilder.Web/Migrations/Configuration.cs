@@ -1,5 +1,6 @@
 namespace BS_FormBuilder.Web.Migrations
 {
+    using BS_FormBuilder.Web.Models.Entities;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -27,6 +28,10 @@ namespace BS_FormBuilder.Web.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            foreach (Form form in context.Forms) {
+                form.Guid = Guid.NewGuid();
+            }
+            context.SaveChanges();
         }
     }
 }

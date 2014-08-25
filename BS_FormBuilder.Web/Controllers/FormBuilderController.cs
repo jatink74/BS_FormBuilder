@@ -34,6 +34,7 @@ namespace BS_FormBuilder.Web.Controllers
             ViewBag.EditMode = "create";
             if (ModelState.IsValid) {
                 form.CreatedOn = DateTime.Now;
+                form.Guid = Guid.NewGuid();
                 db.Forms.Add(form);
                 db.SaveChanges();
                 var redirectUrl = Url.Action("List", "FormBuilder");

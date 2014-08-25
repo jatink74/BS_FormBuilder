@@ -25,6 +25,8 @@ namespace BS_FormBuilder.Web.Models.Entities {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int FormId { get; set; }
 
+        public Guid Guid { get; set; }
+
         [Required(AllowEmptyStrings=false,ErrorMessage="Form Name should be specified")]
         [MaxLength(100, ErrorMessage="Form Name cannot exceed 100 characters")]
         [DisplayName("Form Name")]

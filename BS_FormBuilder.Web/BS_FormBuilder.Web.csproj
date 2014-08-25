@@ -136,6 +136,10 @@
     <Compile Include="Migrations\201408131316384_Add_Form_FormDisplayType.Designer.cs">
       <DependentUpon>201408131316384_Add_Form_FormDisplayType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201408250427098_Added GUID Column for the Form.cs" />
+    <Compile Include="Migrations\201408250427098_Added GUID Column for the Form.Designer.cs">
+      <DependentUpon>201408250427098_Added GUID Column for the Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Entities\Form.cs" />
     <Compile Include="Models\Entities\FormBuilderContext.cs" />
@@ -281,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201408131316384_Add_Form_FormDisplayType.resx">
       <DependentUpon>201408131316384_Add_Form_FormDisplayType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408250427098_Added GUID Column for the Form.resx">
+      <DependentUpon>201408250427098_Added GUID Column for the Form.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

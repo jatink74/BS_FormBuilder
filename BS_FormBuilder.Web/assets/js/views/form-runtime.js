@@ -38,7 +38,7 @@
       , render: function () {
           //Render Snippet Views
           this.$el.empty();
-          this.$el.html(this.template({ formId: this.formRecord.id, formName: this.formName }));
+          this.$el.html(this.template({ guid: this.formRecord.get("guid"), formName: this.formName }));
           var that = this;
           _.each(this.collection.renderMyFormPreview(), function (snippet) {
               that.$('#renderFormInner').append(snippet);

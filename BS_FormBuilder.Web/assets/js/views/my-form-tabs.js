@@ -36,7 +36,7 @@
               collection: this.collection,
               formRecord: this.formRecord,
           });
-          this.$el.append(this.exportFormTemplate({ formId: this.formRecord.id }));
+          this.$el.append(this.exportFormTemplate({ guid: this.formRecord.get("guid") }));
           this.delegateEvents();
       },
       saveForm: function () {

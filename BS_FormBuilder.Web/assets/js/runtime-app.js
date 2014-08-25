@@ -9,7 +9,7 @@
 ) {
     return {
         initialize: function (id) {
-            var formRecord = new FormRecord({ formId: id });
+            var formRecord = new FormRecord({ guid: id });
             formRecord.fetch({
                 success: function () {
                     var snippetsCollection = new MyFormSnippetsCollection(JSON.parse(formRecord.get("formBuilderJson")));
