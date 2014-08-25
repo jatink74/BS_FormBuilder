@@ -8,7 +8,7 @@
                 <span class="modal-title" style="font-weight:bold;" id="myModalLabel">Html Code</span>
             </div>
             <div class="modal-body">
-            <textarea >
+            <textarea readonly="readonly" style="cursor:copy">
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -24,10 +24,8 @@
         <link href="Content/Site.css" rel="stylesheet" />
     </head>
     <body>
-        <form action="/FormBuilder/Run/<%= formId %>" method="post" id="previewForm" class="form-horizontal">
-            <div id="renderForm" class="span6">
-            </div>
-        </form>
+        <div id="renderForm" class="span6">
+        </div>
 
         <script src="/assets/js/lib/require.js" data-main="/assets/js/main-built.js" data-start="app/runtime-app" data-form-id="<%= formId %>">
         </script>

@@ -8,7 +8,7 @@
                 <span class="modal-title" id="myModalLabel">&nbsp;</span>
             </div>
             <div class="modal-body">
-                <form id="previewForm" class="form-horizontal" onsubmit="return false;">
+                <form action="/FormBuilder/Run/<%= formId %>" method="post" id="previewForm" class="form-horizontal">
                     <fieldset>
                         <div id="renderFormInner"></div>
                     </fieldset>
