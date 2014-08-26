@@ -28,10 +28,10 @@ namespace BS_FormBuilder.Web.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            foreach (Form form in context.Forms) {
-                form.Guid = Guid.NewGuid();
-            }
-            context.SaveChanges();
+            //foreach (Form form in context.Forms) {
+            //    form.Guid = Guid.NewGuid();
+            //}
+            //context.SaveChanges();
         }
     }
 }

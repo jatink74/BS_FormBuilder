@@ -58,5 +58,27 @@ input[type="checkbox"].input-validation-error {
 }
 
 .radio-common {
-    margin-top:4px;
+    font-weight:normal;
+    label {
+        font-weight:normal;
+    }
+}
+
+.form-group {
+    margin-bottom:5px;
+}
+
+.style-div {
+    border: 1px solid #ccc;
+    margin:0;
+    margin-left:15px;
+    margin-bottom:10px;
+    padding:2px;
+    label {
+        font-weight:normal;
+        font-style:italic;
+    }
+    input {
+        width:100%;
+    }
 }

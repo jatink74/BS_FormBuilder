@@ -6,6 +6,8 @@
     <title>Form Builder - @ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Scripts/bootstrapformhelpers/css/bootstrap-formhelpers.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jscolor/jscolor.js"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -37,6 +39,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/bootstrapformhelpers/js/bootstrap-formhelpers.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

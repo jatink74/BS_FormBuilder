@@ -38,7 +38,14 @@
       , render: function () {
           //Render Snippet Views
           this.$el.empty();
-          this.$el.html(this.template({ guid: this.formRecord.get("guid"), formName: this.formName }));
+          this.$el.html(this.template({
+              guid: this.formRecord.get("guid"),
+              formName: this.formName,
+              background: this.formRecord.get("openDialogBtnBackground"),
+              foreground: this.formRecord.get("openDialogBtnForeground"),
+              font: this.formRecord.get("openDialogBtnFont"),
+              fontSize: this.formRecord.get("openDialogBtnFontSize"),
+          }));
           var that = this;
           _.each(this.collection.renderMyFormPreview(), function (snippet) {
               that.$('#renderFormInner').append(snippet);

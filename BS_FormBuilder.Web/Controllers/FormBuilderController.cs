@@ -113,6 +113,10 @@ namespace BS_FormBuilder.Web.Controllers
             Form dbForm = db.Forms.Where(f => f.FormId == form.FormId).SingleOrDefault();
             if (dbForm != null) {
                 dbForm.FormDisplayStyle = form.FormDisplayStyle;
+                dbForm.OpenDialogBtnBackground = form.OpenDialogBtnBackground;
+                dbForm.OpenDialogBtnForeground = form.OpenDialogBtnForeground;
+                dbForm.OpenDialogBtnFont = form.OpenDialogBtnFont;
+                dbForm.OpenDialogBtnFontSize = form.OpenDialogBtnFontSize;
                 dbForm.RowVersion = form.RowVersion;
                 dbForm.UpdatedOn = DateTime.Now;
                 db.SaveChanges();

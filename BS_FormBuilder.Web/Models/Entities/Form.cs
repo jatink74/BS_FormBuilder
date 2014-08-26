@@ -35,6 +35,18 @@ namespace BS_FormBuilder.Web.Models.Entities {
         [DisplayName("Display Style")]
         public FormDisplayStyle FormDisplayStyle { get; set; }
 
+        [DisplayName("Button Background")]
+        public string OpenDialogBtnBackground { get; set; }
+
+        [DisplayName("Button Font")]
+        public string OpenDialogBtnFont { get; set; }
+
+        [DisplayName("Button Font Size")]
+        public string OpenDialogBtnFontSize { get; set; }
+
+        [DisplayName("Button Foreground")]
+        public string OpenDialogBtnForeground { get; set; }
+
         [Required(AllowEmptyStrings=false, ErrorMessage="Form Json Field Cannot be Blank")]
         public string FormJson { get; set; }
 

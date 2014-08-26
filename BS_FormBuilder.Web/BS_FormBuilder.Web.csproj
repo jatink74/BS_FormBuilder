@@ -140,6 +140,14 @@
     <Compile Include="Migrations\201408250427098_Added GUID Column for the Form.Designer.cs">
       <DependentUpon>201408250427098_Added GUID Column for the Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201408260513174_Modal Button Color Selections.cs" />
+    <Compile Include="Migrations\201408260513174_Modal Button Color Selections.Designer.cs">
+      <DependentUpon>201408260513174_Modal Button Color Selections.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408260926554_Font Support Added.cs" />
+    <Compile Include="Migrations\201408260926554_Font Support Added.Designer.cs">
+      <DependentUpon>201408260926554_Font Support Added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Entities\Form.cs" />
     <Compile Include="Models\Entities\FormBuilderContext.cs" />
@@ -246,8 +254,22 @@
     <Content Include="Content\sass\base.scss" />
     <Content Include="config.rb" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\bootstrapformhelpers\css\bootstrap-formhelpers.css" />
+    <Content Include="Scripts\bootstrapformhelpers\css\bootstrap-formhelpers.min.css" />
+    <Content Include="Scripts\bootstrapformhelpers\img\bootstrap-formhelpers-countries.flags-LICENSE.txt" />
+    <Content Include="Scripts\bootstrapformhelpers\img\bootstrap-formhelpers-countries.flags.png" />
+    <Content Include="Scripts\bootstrapformhelpers\img\bootstrap-formhelpers-currencies.flags.png" />
+    <Content Include="Scripts\bootstrapformhelpers\img\bootstrap-formhelpers-googlefonts.png" />
+    <Content Include="Scripts\bootstrapformhelpers\js\bootstrap-formhelpers.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jscolor.js" />
+    <Content Include="Scripts\jscolor\arrow.gif" />
+    <Content Include="Scripts\jscolor\cross.gif" />
+    <Content Include="Scripts\jscolor\demo.html" />
+    <Content Include="Scripts\jscolor\hs.png" />
+    <Content Include="Scripts\jscolor\hv.png" />
+    <Content Include="Scripts\jscolor\jscolor.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -285,6 +307,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201408250427098_Added GUID Column for the Form.resx">
       <DependentUpon>201408250427098_Added GUID Column for the Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408260513174_Modal Button Color Selections.resx">
+      <DependentUpon>201408260513174_Modal Button Color Selections.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408260926554_Font Support Added.resx">
+      <DependentUpon>201408260926554_Font Support Added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
