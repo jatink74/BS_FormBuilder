@@ -51,10 +51,15 @@ define([
                   formBuilderJson: formBuilderJson
               }),
               success: function (resp) {
+                  console.log(resp.errorMessage);
                   $(".ajax-loader").hide();
                   if (resp.result == 'Redirect') {
                       window.location.href = resp.url;
-                  } else {
+                  }
+                  else if (resp.result == 'Error') {
+                      alert(resp.errorMessage);
+                  }
+                  else {
                       alert("Form has been successfully updated.");
                   }
               },

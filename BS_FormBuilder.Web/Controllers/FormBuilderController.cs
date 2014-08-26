@@ -9,6 +9,8 @@ using System.Web.Mvc;
 using BS_FormBuilder.Web.Models.Entities;
 using System.Threading;
 using BS_FormBuilder.Web.Models.ViewModels;
+using System.Web.Script.Serialization;
+using Newtonsoft.Json.Linq;
 
 namespace BS_FormBuilder.Web.Controllers
 {
@@ -32,13 +34,21 @@ namespace BS_FormBuilder.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Form form) {
             ViewBag.EditMode = "create";
-            if (ModelState.IsValid) {
-                form.CreatedOn = DateTime.Now;
-                form.Guid = Guid.NewGuid();
-                db.Forms.Add(form);
-                db.SaveChanges();
-                var redirectUrl = Url.Action("List", "FormBuilder");
-                return Json(new { result = "Redirect", url = redirectUrl });
+
+            string duplicateId = HasDuplicateIds(form.FormJson);
+            if (string.IsNullOrEmpty(duplicateId)) {
+                if (ModelState.IsValid) {
+                    form.CreatedOn = DateTime.Now;
+                    form.Guid = Guid.NewGuid();
+                    db.Forms.Add(form);
+                    db.SaveChanges();
+                    var redirectUrl = Url.Action("List", "FormBuilder");
+                    return Json(new { result = "Redirect", url = redirectUrl });
+                }
+            }
+            else {
+                var errorMessage = string.Format(Messages.DuplicateIdsInForm, duplicateId);
+                return Json(new { result = "Error", errorMessage = errorMessage  });
             }
             return new HttpStatusCodeResult(500, "Error Occurred. Form Not Created");
         }
@@ -60,20 +70,29 @@ namespace BS_FormBuilder.Web.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Form form) {
-            if (ModelState.IsValid) {
-                Form dbForm = db.Forms.Where(f => f.FormId == form.FormId).SingleOrDefault();
-                if (dbForm != null) {
-                    dbForm.FormName = form.FormName;
-                    dbForm.FormJson = form.FormJson;
-                    dbForm.FormBuilderJson = form.FormBuilderJson;
-                    dbForm.UpdatedOn = DateTime.Now;
-//ToDo                    dbForm.RowVersion = form.RowVersion;
-                    db.SaveChanges();
-                    return Json(string.Empty);
+            ViewBag.EditMode = "edit";
+
+            string duplicateId = HasDuplicateIds(form.FormJson);
+            if (string.IsNullOrEmpty(duplicateId)) {
+                if (ModelState.IsValid) {
+                    Form dbForm = db.Forms.Where(f => f.FormId == form.FormId).SingleOrDefault();
+                    if (dbForm != null) {
+                        dbForm.FormName = form.FormName;
+                        dbForm.FormJson = form.FormJson;
+                        dbForm.FormBuilderJson = form.FormBuilderJson;
+                        dbForm.UpdatedOn = DateTime.Now;
+                        //ToDo                    dbForm.RowVersion = form.RowVersion;
+                        db.SaveChanges();
+                        return Json(string.Empty);
+                    }
+                    else {
+                        return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+                    }
                 }
-                else {
-                    return new HttpStatusCodeResult(HttpStatusCode.NotFound);
-                }
+            }
+            else {
+                var errorMessage = string.Format(Messages.DuplicateIdsInForm, duplicateId);
+                return Json(new { result = "Error", errorMessage = errorMessage });
             }
             return View(form);
         }
@@ -123,6 +142,26 @@ namespace BS_FormBuilder.Web.Controllers
                 return RedirectToAction("List");
             }
             return View(form);
+        }
+
+        private string HasDuplicateIds(string jsonArray) {
+            List<string> idList = new List<string>();
+            JArray jArray = JArray.Parse(jsonArray);
+            foreach (JObject jObject in jArray) {
+                string idToken = (string) jObject.SelectToken("id");
+                if (!string.IsNullOrEmpty(idToken)) {
+                    idList.Add(idToken);
+                }
+            }
+            var firstDuplicate = idList.GroupBy(id => id, StringComparer.CurrentCultureIgnoreCase)
+                                       .Where(group => group.Count() > 1)
+                                       .Select(group => group.Key)
+                                       .SingleOrDefault();
+
+            if (!string.IsNullOrEmpty(firstDuplicate)) {
+                return firstDuplicate;
+            }
+            return null;
         }
 
 

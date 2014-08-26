@@ -128,6 +128,11 @@
     </Compile>
     <Compile Include="Helpers\DropDownEnumExtension.cs" />
     <Compile Include="Helpers\JsonCamelCaseResult.cs" />
+    <Compile Include="Messages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201408060546577_InitialCreate.cs" />
     <Compile Include="Migrations\201408060546577_InitialCreate.Designer.cs">
       <DependentUpon>201408060546577_InitialCreate.cs</DependentUpon>
@@ -299,6 +304,10 @@
     <Content Include="Views\FormBuilder\EditAttributes.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Messages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201408060546577_InitialCreate.resx">
       <DependentUpon>201408060546577_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
