@@ -101,7 +101,7 @@ namespace BS_FormBuilder.Web.Helpers {
                     var mergedHtmlAttributes = (IDictionary<string, object>) Merge(idObject, htmlAttributes);
                     var label = htmlHelper.Label(idObject.id, HttpUtility.HtmlEncode(item.Text), new {style="font-weight:normal;"});
                     var radio = htmlHelper.RadioButtonFor(expression, item.Value, mergedHtmlAttributes).ToHtmlString();
-                    sb.AppendFormat("<div class='radio-common'>{0}{1}</div>", radio, label);
+                    sb.AppendFormat("<span class='radio-gen'>{0}{1}</span>", radio, label);
                 }
             }
             return MvcHtmlString.Create(sb.ToString()); 

@@ -8,6 +8,17 @@ using System.Web;
 
 namespace BS_FormBuilder.Web.Models.Entities {
 
+    public enum OpenDialogBtnPosition {
+        [Description("Top-Left")]
+        Top_Left,
+        [Description("Top-Right")]
+        Top_Right,
+        [Description("Bottom-Right")]
+        Bottom_Right,
+        [Description("Bottom-Left")]
+        Bottom_Left
+    }
+
     public enum FormDisplayStyle {
         [Description("Non Modal(Landing Page)")]
         Non_Modal,
@@ -15,8 +26,6 @@ namespace BS_FormBuilder.Web.Models.Entities {
         Slide_From_Top,
         [Description("Slide From Bottom")]
         Slide_From_Bottom_Right
-        //[Description("Slide From Side")]
-        //Slide_From_Side
     }
 
     public class Form {
@@ -38,14 +47,17 @@ namespace BS_FormBuilder.Web.Models.Entities {
         [DisplayName("Button Background")]
         public string OpenDialogBtnBackground { get; set; }
 
+        [DisplayName("Button Foreground")]
+        public string OpenDialogBtnForeground { get; set; }
+
         [DisplayName("Button Font")]
         public string OpenDialogBtnFont { get; set; }
 
         [DisplayName("Button Font Size")]
         public string OpenDialogBtnFontSize { get; set; }
 
-        [DisplayName("Button Foreground")]
-        public string OpenDialogBtnForeground { get; set; }
+        [DisplayName("Button Postion")]
+        public OpenDialogBtnPosition OpenDialogBtnPosition { get; set; }
 
         [Required(AllowEmptyStrings=false, ErrorMessage="Form Json Field Cannot be Blank")]
         public string FormJson { get; set; }

@@ -136,6 +136,7 @@ namespace BS_FormBuilder.Web.Controllers
                 dbForm.OpenDialogBtnForeground = form.OpenDialogBtnForeground;
                 dbForm.OpenDialogBtnFont = form.OpenDialogBtnFont;
                 dbForm.OpenDialogBtnFontSize = form.OpenDialogBtnFontSize;
+                dbForm.OpenDialogBtnPosition = form.OpenDialogBtnPosition;
                 dbForm.RowVersion = form.RowVersion;
                 dbForm.UpdatedOn = DateTime.Now;
                 db.SaveChanges();

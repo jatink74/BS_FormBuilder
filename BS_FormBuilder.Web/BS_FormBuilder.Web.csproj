@@ -153,6 +153,10 @@
     <Compile Include="Migrations\201408260926554_Font Support Added.Designer.cs">
       <DependentUpon>201408260926554_Font Support Added.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201408261329292_Open Dialog Button Position.cs" />
+    <Compile Include="Migrations\201408261329292_Open Dialog Button Position.Designer.cs">
+      <DependentUpon>201408261329292_Open Dialog Button Position.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Entities\Form.cs" />
     <Compile Include="Models\Entities\FormBuilderContext.cs" />
@@ -174,6 +178,7 @@
     <Content Include="assets\js\builder-app.js" />
     <Content Include="assets\js\collections\my-form-snippets.js" />
     <Content Include="assets\js\collections\snippets.js" />
+    <Content Include="assets\js\helper\app-methods.js" />
     <Content Include="assets\js\helper\bs-multiselect.js" />
     <Content Include="assets\js\helper\app-constants.js" />
     <Content Include="assets\js\helper\pubsub.js" />
@@ -322,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201408260926554_Font Support Added.resx">
       <DependentUpon>201408260926554_Font Support Added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408261329292_Open Dialog Button Position.resx">
+      <DependentUpon>201408261329292_Open Dialog Button Position.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

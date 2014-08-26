@@ -36,7 +36,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.FormDisplayStyle, new { @class = "control-label col-md-2" })
-            <div class="col-md-4 form-control-static">
+            <div class="col-md-5 form-control-static">
                 <div class="radio-common">
                     <label class="radio-wrapper">
                         @Html.RadioButtonFor(m => m.FormDisplayStyle, FormDisplayStyle.Non_Modal
@@ -76,6 +76,13 @@
                         @Html.LabelFor(model => model.OpenDialogBtnFontSize, new { @class = "control-label col-md-5" })
                         <div class="col-md-7 form-control-static">
                             <select id="OpenDialogBtnFontSize" name="OpenDialogBtnFontSize" class="form-control bfh-fontsizes" data-fontsize="@Model.OpenDialogBtnFontSize"></select>
+                        </div>
+                    </div>
+
+                    <div class="form-group" >
+                        @Html.LabelFor(model => model.OpenDialogBtnPosition, new { @class = "control-label col-md-5" })
+                        <div class="col-md-7 form-control-static">
+                            @Html.EnumDropDownListFor(m => m.OpenDialogBtnPosition, new {@class="form-control" })
                         </div>
                     </div>
                 </div>

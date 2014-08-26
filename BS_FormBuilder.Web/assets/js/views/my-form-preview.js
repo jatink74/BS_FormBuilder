@@ -1,11 +1,11 @@
 ﻿define([
        "jquery", "underscore", "backbone"
        , "text!templates/app/tab-nav.html"
-      , "helper/pubsub", "helper/app-constants"
+      , "helper/pubsub", "helper/app-constants", "helper/app-methods"
 ], function (
   $, _, Backbone
   , _tabNavTemplate
-  , PubSub, AppConstants
+  , PubSub, AppConstants, AppMethods
 ) {
     return Backbone.View.extend({
     tagName: "div"
@@ -18,20 +18,20 @@
         this.collection.on("remove", this.renderFormCollection, this);
         this.collection.on("change", this.renderFormCollection, this);
         this.formRecord = options.formRecord;
-        this.displayClass = "default";
-        switch (this.formRecord.get("formDisplayStyle")) {
-            case AppConstants.FormDisplayStyles.NON_MODAL:
-                this.displayClass = "default";
-                break;
-            case AppConstants.FormDisplayStyles.SLIDE_FROM_TOP:
-                this.displayClass = "modal-default";
-                break;
-            case AppConstants.FormDisplayStyles.SLIDE_FROM_BOTTOM_RIGHT:
-                this.displayClass = "modal-bottom-slide";
-                break;
-            default:
-                break;
-        }
+        this.displayClass = AppMethods.getDisplayClass(this.formRecord.get("formDisplayStyle"));
+        //switch (this.formRecord.get("formDisplayStyle")) {
+        //    case AppConstants.FormDisplayStyles.NON_MODAL:
+        //        this.displayClass = "default";
+        //        break;
+        //    case AppConstants.FormDisplayStyles.SLIDE_FROM_TOP:
+        //        this.displayClass = "modal-default";
+        //        break;
+        //    case AppConstants.FormDisplayStyles.SLIDE_FROM_BOTTOM_RIGHT:
+        //        this.displayClass = "modal-bottom-slide";
+        //        break;
+        //    default:
+        //        break;
+        //}
         this.render();
     }
     , render: function () {
