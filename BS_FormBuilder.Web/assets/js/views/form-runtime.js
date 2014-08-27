@@ -14,6 +14,10 @@
           this.template = AppMethods.getRuntimeTemplate(this.formRecord.get("formDisplayStyle"));
           this.positionClass = AppMethods.getModalButtonPosClass(this.formRecord.get("openDialogBtnPosition"));
           this.formName = this.formRecord.get("formName");
+          this.buttonStyle = AppMethods.getModalButtonStyle(this.formRecord.get("openDialogBtnBackground"),
+                                                            this.formRecord.get("openDialogBtnForeground"),
+                                                            this.formRecord.get("openDialogBtnFont"),
+                                                            this.formRecord.get("openDialogBtnFontSize"));
           this.render();
       }
       , render: function () {
@@ -22,10 +26,7 @@
           this.$el.html(this.template({
               guid: this.formRecord.get("guid"),
               formName: this.formName,
-              background: this.formRecord.get("openDialogBtnBackground"),
-              foreground: this.formRecord.get("openDialogBtnForeground"),
-              font: this.formRecord.get("openDialogBtnFont"),
-              fontSize: this.formRecord.get("openDialogBtnFontSize"),
+              buttonStyle: this.buttonStyle,
               postionClass: this.positionClass
           }));
           var that = this;

@@ -120,4 +120,10 @@
   <data name="DuplicateIdsInForm" xml:space="preserve">
     <value>Duplicate id "{0}" found in the Form. Please ensure that form does not have duplicte ids</value>
   </data>
+  <data name="EditAttributeSaveAndBuild" xml:space="preserve">
+    <value>Save &amp; Build</value>
+  </data>
+  <data name="EditAttributeSaveAndReturn" xml:space="preserve">
+    <value>Save &amp; Return</value>
+  </data>
 </root>

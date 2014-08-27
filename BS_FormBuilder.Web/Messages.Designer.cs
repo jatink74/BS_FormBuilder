@@ -22,7 +22,7 @@ namespace BS_FormBuilder.Web {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Messages {
+    public class Messages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace BS_FormBuilder.Web {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BS_FormBuilder.Web.Messages", typeof(Messages).Assembly);
@@ -51,7 +51,7 @@ namespace BS_FormBuilder.Web {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,9 +63,27 @@ namespace BS_FormBuilder.Web {
         /// <summary>
         ///   Looks up a localized string similar to Duplicate id &quot;{0}&quot; found in the Form. Please ensure that form does not have duplicte ids.
         /// </summary>
-        internal static string DuplicateIdsInForm {
+        public static string DuplicateIdsInForm {
             get {
                 return ResourceManager.GetString("DuplicateIdsInForm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save &amp; Build.
+        /// </summary>
+        public static string EditAttributeSaveAndBuild {
+            get {
+                return ResourceManager.GetString("EditAttributeSaveAndBuild", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save &amp; Return.
+        /// </summary>
+        public static string EditAttributeSaveAndReturn {
+            get {
+                return ResourceManager.GetString("EditAttributeSaveAndReturn", resourceCulture);
             }
         }
     }

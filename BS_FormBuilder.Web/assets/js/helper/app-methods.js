@@ -69,6 +69,24 @@
                     break;
             }
             return positionClass;
+        },
+
+        getModalButtonStyle: function (buttonBackground, buttonForeground, buttonFont, buttonFontSize) {
+            var style = '';
+            if (buttonBackground) {
+                style = style + 'background-color:' + '#'  +  buttonBackground + ';';
+            }
+            if (buttonForeground) {
+                style = style + 'color:' + '#' + buttonForeground + ';';
+            }
+            if (buttonFont) {
+                style = style + 'font-family:' + buttonFont + ';';
+            }
+            if (buttonFontSize) {
+                style = style + 'font-size:' + buttonFontSize + 'px;';
+            }
+            return style;
         }
+        
     }
 })

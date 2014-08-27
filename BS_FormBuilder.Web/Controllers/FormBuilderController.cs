@@ -22,35 +22,17 @@ namespace BS_FormBuilder.Web.Controllers
             return View(db.Forms.ToList());
         }
 
-
-        // GET: /FormBuilder/Create
         public ActionResult Create() {
-            ViewBag.EditMode = "create";
-            return View(new Form());
-        }
-
-        // POST: /FormBuilder/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(Form form) {
-            ViewBag.EditMode = "create";
-
-            string duplicateId = HasDuplicateIds(form.FormJson);
-            if (string.IsNullOrEmpty(duplicateId)) {
-                if (ModelState.IsValid) {
-                    form.CreatedOn = DateTime.Now;
-                    form.Guid = Guid.NewGuid();
-                    db.Forms.Add(form);
-                    db.SaveChanges();
-                    var redirectUrl = Url.Action("List", "FormBuilder");
-                    return Json(new { result = "Redirect", url = redirectUrl });
-                }
-            }
-            else {
-                var errorMessage = string.Format(Messages.DuplicateIdsInForm, duplicateId);
-                return Json(new { result = "Error", errorMessage = errorMessage  });
-            }
-            return new HttpStatusCodeResult(500, "Error Occurred. Form Not Created");
+            Form form = new Form() {
+                FormName = "Form Name",
+                FormJson = DefaultFormJson(),
+                FormBuilderJson = DefaultFormBuilderJson(),
+                Guid = Guid.NewGuid(),
+                CreatedOn = DateTime.Now
+            };
+            db.Forms.Add(form);
+            db.SaveChanges();
+            return RedirectToAction("EditAttributes", new {formId = form.FormId});
         }
 
         // GET: /FormBuilder/Edit/5
@@ -128,7 +110,7 @@ namespace BS_FormBuilder.Web.Controllers
         // POST: /FormBuilder/EditAttributes
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditAttributes(Form form) {
+        public ActionResult EditAttributes(Form form, string submitButton) {
             Form dbForm = db.Forms.Where(f => f.FormId == form.FormId).SingleOrDefault();
             if (dbForm != null) {
                 dbForm.FormDisplayStyle = form.FormDisplayStyle;
@@ -140,6 +122,13 @@ namespace BS_FormBuilder.Web.Controllers
                 dbForm.RowVersion = form.RowVersion;
                 dbForm.UpdatedOn = DateTime.Now;
                 db.SaveChanges();
+
+                if (submitButton.Equals(Messages.EditAttributeSaveAndReturn)) {
+                    return RedirectToAction("List");
+                }
+                else if (submitButton.Equals(Messages.EditAttributeSaveAndBuild)) {
+                    return RedirectToAction("Edit", new { formId = form.FormId });
+                }
                 return RedirectToAction("List");
             }
             return View(form);
@@ -165,6 +154,13 @@ namespace BS_FormBuilder.Web.Controllers
             return null;
         }
 
+        private string DefaultFormJson() {
+            return "[{\"name\":\"Form Name\"}]";
+        }
+
+        private string DefaultFormBuilderJson() {
+            return "[{\"title\":\"Form Name\",\"fields\":{\"name\":{\"label\":\"Form Name\",\"type\":\"input\",\"value\":\"Form Name\",\"name\":\"name\"}}}]";
+        }
 
         protected override void Dispose(bool disposing) {
             if (disposing) {
