@@ -8,14 +8,13 @@
     ViewBag.Title = "EditFormAttributes";
 }
 
-<h3>Edit Form Attributes <span class="backToListLink"> [ @Html.ActionLink("Back to List", "List") ]</span></h3>
+<h3>Form Attributes <span class="backToListLink"> [ @Html.ActionLink("Back to List", "List") ]</span></h3>
 
 @using (Html.BeginForm("EditAttributes","FormBuilder", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>@Model.FormName</h4>
+    <div class="form-horizontal" id="edit-attributes">
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.FormId)
@@ -54,41 +53,42 @@
                     </label>
                 </div>
 
-                <div class="style-div">
+                <fieldset class="style-div">
+                    <legend>Modal Window Open Button Style</legend>
                     <div class="form-group">
                         @Html.LabelFor(model => model.OpenDialogBtnBackground, new { @class = "control-label col-md-5" })
                         <div class="col-md-7 form-control-static">
-                            @Html.TextBoxFor(m => m.OpenDialogBtnBackground, new { @class = "color {required:false} modal-state", id = "backgroundColor" })
+                            @Html.TextBoxFor(m => m.OpenDialogBtnBackground, new { @class = "color {required:false} form-control input-sm modal-state", id = "backgroundColor" })
                         </div>
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(model => model.OpenDialogBtnForeground, new { @class = "control-label col-md-5" })
                         <div class="col-md-7 form-control-static">
-                            @Html.TextBoxFor(m => m.OpenDialogBtnForeground, new { @class = "color {required:false} modal-state", id = "foregroundColor" })
+                            @Html.TextBoxFor(m => m.OpenDialogBtnForeground, new { @class = "color {required:false}  form-control input-sm modal-state", id = "foregroundColor" })
                         </div>
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(model => model.OpenDialogBtnFont, new { @class = "control-label col-md-5" })
                         <div class="col-md-7 form-control-static">
                             <select id="OpenDialogBtnFont" name="OpenDialogBtnFont"
-                                    class="form-control bfh-fonts modal-state" data-font="@Model.OpenDialogBtnFont"></select>
+                                    class="form-control bfh-fonts form-control input-sm modal-state" data-font="@Model.OpenDialogBtnFont"></select>
                         </div>
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(model => model.OpenDialogBtnFontSize, new { @class = "control-label col-md-5" })
                         <div class="col-md-7 form-control-static">
                             <select id="OpenDialogBtnFontSize" name="OpenDialogBtnFontSize"
-                                    class="form-control bfh-fontsizes modal-state" data-fontsize="@Model.OpenDialogBtnFontSize"></select>
+                                    class="form-control bfh-fontsizes form-control input-sm modal-state" data-fontsize="@Model.OpenDialogBtnFontSize"></select>
                         </div>
                     </div>
 
-                    <div class="form-group" >
+                    <div class="form-group">
                         @Html.LabelFor(model => model.OpenDialogBtnPosition, new { @class = "control-label col-md-5" })
                         <div class="col-md-7 form-control-static">
-                            @Html.EnumDropDownListFor(m => m.OpenDialogBtnPosition, new { @class = "form-control modal-state" })
+                            @Html.EnumDropDownListFor(m => m.OpenDialogBtnPosition, new { @class = "form-control input-sm modal-state" })
                         </div>
                     </div>
-                </div>
+                </fieldset>
 
                 <div class="radio-common">
                     <label class="radio-wrapper">
@@ -103,8 +103,8 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" name="submitButton" value="@Messages.EditAttributeSaveAndReturn" class="btn btn-info" />
-                <input type="submit" name="submitButton" value="@Messages.EditAttributeSaveAndBuild" class="btn btn-info" />
+                <input type="submit" name="submitButton" value="@Messages.EditAttributeSaveAndReturn" class="btn btn-primary btn-sm" />
+                <input type="submit" name="submitButton" value="@Messages.EditAttributeSaveAndBuild" class="btn btn-primary btn-sm" />
             </div>
         </div>
     </div>

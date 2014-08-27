@@ -30,7 +30,7 @@ namespace BS_FormBuilder.Web.Models.Entities {
 
     public class Form {
 
-        [DisplayName("Form Id")]
+        [DisplayName("Form Id :")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int FormId { get; set; }
 
@@ -38,25 +38,25 @@ namespace BS_FormBuilder.Web.Models.Entities {
 
         [Required(AllowEmptyStrings=false,ErrorMessage="Form Name should be specified")]
         [MaxLength(100, ErrorMessage="Form Name cannot exceed 100 characters")]
-        [DisplayName("Form Name")]
+        [DisplayName("Form Name :")]
         public string FormName { get; set; }
 
-        [DisplayName("Display Style")]
+        [DisplayName("Display Style :")]
         public FormDisplayStyle FormDisplayStyle { get; set; }
 
-        [DisplayName("Button Background")]
+        [DisplayName("Button Background :")]
         public string OpenDialogBtnBackground { get; set; }
 
-        [DisplayName("Button Foreground")]
+        [DisplayName("Button Foreground :")]
         public string OpenDialogBtnForeground { get; set; }
 
-        [DisplayName("Button Font")]
+        [DisplayName("Button Font :")]
         public string OpenDialogBtnFont { get; set; }
 
-        [DisplayName("Button Font Size")]
+        [DisplayName("Button Font Size :")]
         public string OpenDialogBtnFontSize { get; set; }
 
-        [DisplayName("Button Postion")]
+        [DisplayName("Button Postion :")]
         public OpenDialogBtnPosition OpenDialogBtnPosition { get; set; }
 
         [Required(AllowEmptyStrings=false, ErrorMessage="Form Json Field Cannot be Blank")]
@@ -65,10 +65,10 @@ namespace BS_FormBuilder.Web.Models.Entities {
         [Required(AllowEmptyStrings = false, ErrorMessage = "Form Builder Json Field Cannot be Blank")]
         public string FormBuilderJson { get; set; }
 
-        [DisplayName("Date Created On")]
+        [DisplayName("Date Created On :")]
         public DateTime CreatedOn { get; set; }
 
-        [DisplayName("Date Updated On")]
+        [DisplayName("Date Updated On :")]
         public DateTime? UpdatedOn { get; set; }
 
         public Byte[] RowVersion { get; set; }

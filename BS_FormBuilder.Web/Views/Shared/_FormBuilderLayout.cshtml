@@ -20,8 +20,8 @@
 
     <form id="__AjaxAntiForgeryForm" action="#" method="post">@Html.AntiForgeryToken()</form>
     @RenderBody()
-    <div class="container">
-        <div class="row clearfix">
+    <div class="container-fluid">
+        <div class="row-fluid clearfix">
             <!-- Building Form. -->
             <div class="span7">
                 <div class="clearfix">
@@ -30,19 +30,6 @@
                     </h2>
                     <hr>
                     <div class="my-form-container"></div>
-                    @*<div class="tabbable form-builder-tab">
-                        <span><button id='saveForm' type='button' class='btn btn-info save-form' style="float:right;">Save Form</button></span>
-                        <ul class="nav nav-tabs" id="designformtabs">
-                            <!-- Form and Preview Tab nav -->
-                        </ul>
-                        <div id="build">
-                            <form id="target" class="form-horizontal">
-                                <div class="tab-content">
-                                    <!-- Design/Preview Tabs go here -->
-                                </div>
-                            </form>
-                        </div>
-                    </div>*@
                 </div>
             </div>
             <!-- / Building Form. -->

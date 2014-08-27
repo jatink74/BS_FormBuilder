@@ -105,3 +105,14 @@ input[type="checkbox"].input-validation-error {
 .style-div input {
   width: 100%;
 }
+/* line 84, D:/Xanadu/Projects/BS_FormBuilder/BS_FormBuilder.Web/content/sass/Site.scss */
+.style-div legend {
+  font-size: 12px;
+  width: auto;
+  border-bottom: none;
+  font-style: oblique;
+  color: dodgerblue;
+  margin-bottom: 2px;
+  padding: 0 2px;
+  text-align: center;
+}

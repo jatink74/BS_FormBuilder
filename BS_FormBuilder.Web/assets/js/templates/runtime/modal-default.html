@@ -20,7 +20,12 @@
 
 <a class="fixed-popup-button zero-radius <%= postionClass %>" data-toggle="modal" data-target="#formModal"
     <% if (buttonStyle) { %>  style="<%= buttonStyle %>" <% } %>
-   >
-   <%= formName %> &nbsp;&nbsp;<!--<i class="icon-chevron-up icon-white"></i>-->
+ >
+<%= formName %> &nbsp;&nbsp;
+    <% if (postionClass == 'top-left' || postionClass == 'top-right') { %>
+        <i class="icon-chevron-down icon-white"></i>
+    <% } else { %>
+        <i class="icon-chevron-up icon-white"></i>
+    <% } %>
 </a>
 

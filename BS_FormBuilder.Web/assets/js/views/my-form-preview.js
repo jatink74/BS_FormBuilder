@@ -19,19 +19,6 @@
         this.collection.on("change", this.renderFormCollection, this);
         this.formRecord = options.formRecord;
         this.displayClass = AppMethods.getDisplayClass(this.formRecord.get("formDisplayStyle"));
-        //switch (this.formRecord.get("formDisplayStyle")) {
-        //    case AppConstants.FormDisplayStyles.NON_MODAL:
-        //        this.displayClass = "default";
-        //        break;
-        //    case AppConstants.FormDisplayStyles.SLIDE_FROM_TOP:
-        //        this.displayClass = "modal-default";
-        //        break;
-        //    case AppConstants.FormDisplayStyles.SLIDE_FROM_BOTTOM_RIGHT:
-        //        this.displayClass = "modal-bottom-slide";
-        //        break;
-        //    default:
-        //        break;
-        //}
         this.render();
     }
     , render: function () {

@@ -81,4 +81,15 @@ input[type="checkbox"].input-validation-error {
     input {
         width:100%;
     }
+    legend {
+        font-size:12px;
+        width:auto;
+        border-bottom:none;
+        font-style:oblique;
+        color:dodgerblue;
+        margin-bottom:2px;
+        padding: 0 2px;
+        text-align:center;
+    }
 }
+
